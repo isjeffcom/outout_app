@@ -1,0 +1,144 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:visibility="visible"
+    tools:context="com.example.tineshia.outout.MapsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@color/outout_transparent"
+        android:minHeight="60dp" />
+
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/user_profile_link"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_user_profile_button"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.LinearLayout
+        android:id="@+id/search_bar"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="80dp"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="310dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="7dp"
+            android:background="#414141"
+            android:gravity="center_vertical"
+            android:onClick="selectDate"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingStart="8dp"
+            android:text="@string/location"
+            android:textColor="#909090"
+            android:textSize="17sp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/appCompatButtonRegister"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="#414141"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawableStart="@drawable/ic_calendar"
+            android:paddingEnd="1dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            android:paddingStart="1dp"
+            android:textColor="#181818"
+            android:textSize="18sp" />
+
+    </android.widget.LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/event_card_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginBottom="12dp"
+        android:animateLayoutChanges="true"
+        android:scrollbars="none"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        tools:context="com.example.tineshia.outout.MapsActivity">
+
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/event_card_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:id="@+id/viewMyPlan_Container"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:clickable="true"
+        android:onClick="openPlan"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent">
+
+    </RelativeLayout>
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:cameraBearing="0"
+        map:cameraZoom="15"
+        map:mapType="normal"
+        map:uiCompass="false"
+        map:uiRotateGestures="false"
+        map:uiScrollGestures="true"
+        map:uiTiltGestures="true"
+        map:uiZoomControls="false"
+        map:uiZoomGestures="true"
+        tools:context="com.example.tineshia.outout.MapsActivity" />
+
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+

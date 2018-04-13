@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/m_c"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="14dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginStart="14dp"
+    map:cardCornerRadius="10dp"
+    map:cardElevation="13dp">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/m_c_img"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            fresco:placeholderImage="@drawable/carde" />
+
+        <!--android.support.v7.widget.AppCompatImageView
+            android:id="@+id/m_c_img"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:background="@drawable/carde" /-->
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/m_c_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:paddingRight="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/astoria_title"
+            android:textColor="#505050"
+            android:textSize="16sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/m_c_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:paddingRight="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/astoria_time"
+            android:textColor="#606060"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#ff999999"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/m_c_addBtn"
+            android:layout_width="48dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="90dp"
+            android:text="ADD"
+            android:onClick="addToEventList"
+            android:textColor = "#333333"
+            android:textSize="10dp"
+            android:background="@drawable/button_border" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="7dp"
+            android:background="#929292" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</android.support.v7.widget.CardView>
+

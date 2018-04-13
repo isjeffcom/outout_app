@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00ffde</color>
+    <color name="colorPrimaryDark">#00ffde</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorBackground">#413e4f</color>
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextHint">#00ffde</color>
+    <color name="outout_colour">#00ffde</color>
+    <color name="outout_dark">#000000</color>
+
+    <color name="outout_transparent">#00000000</color>
+
+    <!-- Material DEFAULT drawer colors -->
+    <color name="material_drawer_primary_light">#00ffde</color>
+    <color name="material_drawer_accent">#00ffde</color>
+    <color name="material_drawer_primary">#000000</color>
+    <color name="material_drawer_background">#00ffde</color>
+    <color name="material_drawer_primary_text">#000000</color>
+    <color name="material_drawer_secondary_text">#000000</color>
+    <color name="material_drawer_hint_text">#000000</color>
+    <color name="material_drawer_divider">#000000</color>
+    <color name="material_drawer_selected">#00ffde</color>
+    <color name="material_drawer_selected_text">#000000</color>
+    <color name="material_drawer_header_selection_text">#000000</color>
+</resources>

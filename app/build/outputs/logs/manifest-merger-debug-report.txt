@@ -1,0 +1,341 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:2:1-13:12
+MERGED from [com.mikepenz:materialdrawer:6.0.7] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:design:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/d86651bb834f9629bd2beba0dffe2686/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-location-10.0.0.aar/582c755a575a1ce66bf3b308fd9f41cb/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.0.aar/8761a3a1c308d439d1b006bd7c06b941/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:16:1-23:12
+MERGED from [com.facebook.fresco:fresco:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fresco-0.12.0.aar/7fa5c0329aa7a9ec72a093ceefcf47d8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/drawee-0.12.0.aar/344f1f1622972249af080991cf45b306/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.12.0.aar/fa03fc1635668ea11b9856b768af5661/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-0.12.0.aar/7b7a8a718cf0f46cac5fdf136ce4ff3d/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:support-v4:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/068bca92fb4d1eb3468e751086a3839e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/949bea8da3e83e527471fb83dfd151e2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2d118faf5a6f417f3b10be6e6c8c509f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/5e52b863b1fbc0aa3fb806284d0e7fdf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/de6ca9d6da7dacd6f29115ba53c01a28/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/65dcf89c985d3fdfb741172ab06b2ada/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/dc7aaac23aa53c56eb4c23d2103f9c21/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/7ff38b39e8e4372f2d5c8419ba547e7c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/de8f46ac810ab044ed194e8397049144/AndroidManifest.xml:17:1-22:12
+MERGED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:2:1-20:12
+MERGED from [com.android.volley:volley:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/3549f55cac0357d1404ebbf04ce67956/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.skydoves:powermenu:2.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/powermenu-2.0.3.aar/b7ec1a304af11ff6a5b9f1c594a042e5/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:2:1-17:12
+MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:2:1-12:12
+MERGED from [com.mikepenz:iconics-core:3.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/iconics-core-3.0.3.aar/1d76445aea8d153631800dbc62074766/AndroidManifest.xml:2:1-12:12
+MERGED from [com.mikepenz:fastadapter:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-3.2.4.aar/6bd9478bc4f72799b2d1ab4fd5663c7a/AndroidManifest.xml:2:1-12:12
+MERGED from [com.mikepenz:fastadapter-extensions-expandable:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-extensions-expandable-3.2.4.aar/ede2448f70a9e19d97915bc83f07e178/AndroidManifest.xml:2:1-12:12
+MERGED from [com.facebook.fresco:fbcore:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fbcore-0.12.0.aar/985d194bb8d0631604857613b8b969ca/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/906969ff36055844479432e3e8628912/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/0beb693a76e28c7384db5885e19efbcb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6e75e453a42ec84ddc5b27a0560142b1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/84f5eba517e6bda25c074db03ed6e702/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+	package
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:3:5-42
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:6:5-71
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:6:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:7:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:8:5-72
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:8:22-69
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:13:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:13:22-64
+application
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:15:5-76:19
+MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:11:5-20
+MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-location:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-location-10.0.0.aar/582c755a575a1ce66bf3b308fd9f41cb/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-location:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-location-10.0.0.aar/582c755a575a1ce66bf3b308fd9f41cb/AndroidManifest.xml:5:5-6:19
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.0.aar/8761a3a1c308d439d1b006bd7c06b941/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.0.aar/8761a3a1c308d439d1b006bd7c06b941/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:19:5-21:19
+MERGED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:12:5-18:19
+MERGED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:12:5-18:19
+MERGED from [com.android.volley:volley:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/3549f55cac0357d1404ebbf04ce67956/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/3549f55cac0357d1404ebbf04ce67956/AndroidManifest.xml:9:5-20
+MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:11:5-15:19
+	android:supportsRtl
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:20:9-35
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:18:9-41
+	android:roundIcon
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:19:9-54
+	android:icon
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:17:9-43
+	android:allowBackup
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:16:9-35
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:21:9-40
+activity#com.example.tineshia.outout.MainActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:22:9-28:20
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:22:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:26:27-74
+activity#com.example.tineshia.outout.LoginActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:29:9-32:47
+	android:screenOrientation
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:31:13-49
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:32:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:30:13-42
+activity#com.example.tineshia.outout.RegisterActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:33:9-36:47
+	android:screenOrientation
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:35:13-49
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:34:13-45
+activity#com.example.tineshia.outout.UsersListActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:37:9-40:47
+	android:screenOrientation
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:39:13-49
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:40:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:38:13-46
+meta-data#com.google.android.gms.version
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:50:9-52:69
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:20:9-121
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:52:13-66
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:51:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:53:9-55:55
+	android:value
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:55:13-52
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:54:13-58
+activity#com.example.tineshia.outout.MapsActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:57:9-59:59
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:59:13-56
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:58:13-41
+activity#com.example.tineshia.outout.SettingsActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:60:9-62:63
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:62:13-60
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:61:13-45
+activity#com.example.tineshia.outout.ProfileActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:63:9-53
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:63:19-50
+activity#com.example.tineshia.outout.userCreation
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:64:9-67:47
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:66:13-65
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:67:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:65:13-41
+activity#com.example.tineshia.outout.Main2Activity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:68:9-71:47
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:70:13-57
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:71:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:69:13-42
+activity#com.example.tineshia.outout.planActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:72:9-75:56
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:74:13-56
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:75:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:73:13-41
+uses-sdk
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:7:5-9:41
+MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikepenz:materialdrawer:6.0.7] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikepenz:materialdrawer:6.0.7] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/d86651bb834f9629bd2beba0dffe2686/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/d86651bb834f9629bd2beba0dffe2686/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.0.aar/8761a3a1c308d439d1b006bd7c06b941/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-tasks:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-tasks-10.0.0.aar/8761a3a1c308d439d1b006bd7c06b941/AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-basement:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-basement-10.0.0.aar/85e50e7a06f96b2e9317fb0c22738ed3/AndroidManifest.xml:17:5-42
+MERGED from [com.facebook.fresco:fresco:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fresco-0.12.0.aar/7fa5c0329aa7a9ec72a093ceefcf47d8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fresco-0.12.0.aar/7fa5c0329aa7a9ec72a093ceefcf47d8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/drawee-0.12.0.aar/344f1f1622972249af080991cf45b306/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/drawee-0.12.0.aar/344f1f1622972249af080991cf45b306/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.12.0.aar/fa03fc1635668ea11b9856b768af5661/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-0.12.0.aar/fa03fc1635668ea11b9856b768af5661/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-0.12.0.aar/7b7a8a718cf0f46cac5fdf136ce4ff3d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-0.12.0.aar/7b7a8a718cf0f46cac5fdf136ce4ff3d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/068bca92fb4d1eb3468e751086a3839e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/068bca92fb4d1eb3468e751086a3839e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/949bea8da3e83e527471fb83dfd151e2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/949bea8da3e83e527471fb83dfd151e2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2d118faf5a6f417f3b10be6e6c8c509f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2d118faf5a6f417f3b10be6e6c8c509f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/5e52b863b1fbc0aa3fb806284d0e7fdf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/5e52b863b1fbc0aa3fb806284d0e7fdf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/de6ca9d6da7dacd6f29115ba53c01a28/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/de6ca9d6da7dacd6f29115ba53c01a28/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/65dcf89c985d3fdfb741172ab06b2ada/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/65dcf89c985d3fdfb741172ab06b2ada/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/dc7aaac23aa53c56eb4c23d2103f9c21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/dc7aaac23aa53c56eb4c23d2103f9c21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/7ff38b39e8e4372f2d5c8419ba547e7c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/7ff38b39e8e4372f2d5c8419ba547e7c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/de8f46ac810ab044ed194e8397049144/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/de8f46ac810ab044ed194e8397049144/AndroidManifest.xml:20:5-44
+MERGED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:7:5-10:72
+MERGED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:7:5-10:72
+MERGED from [com.android.volley:volley:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/3549f55cac0357d1404ebbf04ce67956/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/3549f55cac0357d1404ebbf04ce67956/AndroidManifest.xml:7:5-43
+MERGED from [com.github.skydoves:powermenu:2.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/powermenu-2.0.3.aar/b7ec1a304af11ff6a5b9f1c594a042e5/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.skydoves:powermenu:2.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/powermenu-2.0.3.aar/b7ec1a304af11ff6a5b9f1c594a042e5/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:iconics-core:3.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/iconics-core-3.0.3.aar/1d76445aea8d153631800dbc62074766/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:iconics-core:3.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/iconics-core-3.0.3.aar/1d76445aea8d153631800dbc62074766/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:fastadapter:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-3.2.4.aar/6bd9478bc4f72799b2d1ab4fd5663c7a/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:fastadapter:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-3.2.4.aar/6bd9478bc4f72799b2d1ab4fd5663c7a/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:fastadapter-extensions-expandable:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-extensions-expandable-3.2.4.aar/ede2448f70a9e19d97915bc83f07e178/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:fastadapter-extensions-expandable:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-extensions-expandable-3.2.4.aar/ede2448f70a9e19d97915bc83f07e178/AndroidManifest.xml:8:5-10:41
+MERGED from [com.facebook.fresco:fbcore:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fbcore-0.12.0.aar/985d194bb8d0631604857613b8b969ca/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:0.12.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fbcore-0.12.0.aar/985d194bb8d0631604857613b8b969ca/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/906969ff36055844479432e3e8628912/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/906969ff36055844479432e3e8628912/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/0beb693a76e28c7384db5885e19efbcb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/0beb693a76e28c7384db5885e19efbcb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6e75e453a42ec84ddc5b27a0560142b1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6e75e453a42ec84ddc5b27a0560142b1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/84f5eba517e6bda25c074db03ed6e702/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/84f5eba517e6bda25c074db03ed6e702/AndroidManifest.xml:20:5-44
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:10:9-69
+	android:targetSdkVersion
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:23:9-25:38
+	android:value
+		ADDED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:25:13-35
+	android:name
+		ADDED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:24:13-51
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location requested WRITE_EXTERNAL_STORAGE
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:19:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/AndroidManifest.xml:19:19-85
+activity#com.tapadoo.alerter.MockActivity
+ADDED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:15:9-17:54
+	android:theme
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:17:13-51
+	android:name
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/AndroidManifest.xml:16:13-60

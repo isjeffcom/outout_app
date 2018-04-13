@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/appCompatChooseGenreLabel"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/genre_selection"
+        android:textColor="#181818"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewLinkRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/select_genres"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatChooseGenreLabel" />
+
+    <TableLayout
+        android:id="@+id/selection_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </TableLayout>
+
+
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="385dp"
+        android:layout_height="30dp"
+        android:progress="33"
+        android:progressTint="@color/colorPrimary"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonGo"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/uc_next"
+        app:layout_constraintBottom_toTopOf="@+id/determinateBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonPre"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/uc_back"
+        app:layout_constraintBottom_toTopOf="@+id/determinateBar"
+        app:layout_constraintStart_toStartOf="@+id/determinateBar" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

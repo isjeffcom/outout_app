@@ -1,0 +1,207 @@
+<resources>
+    <string name="app_name">Out Out</string>
+
+    <string name="text_accounts">All Registered Users</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_login">LOGIN</string>
+    <string name="text_register">SIGN UP</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_age">Enter Age</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="success_message">Registration Successful</string>
+    <string name="text_not_member">Continue without login</string>
+    <string name="text_already_member">Already a member? Login</string>
+    <string name="error_email_exists">Email Already Exists</string>
+    <string name="error_password_match">Passwords Do Not Match</string>
+    <string name="error_valid_email_password">Wrong Email or Password</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_hello">Hello, Tineshia</string>
+    <string name="text_title">Out Out User Database</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="text_splash1">PLAN YOUR UNBEATABLE</string>
+    <string name="text_splash2">NIGHT OUT</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_register">Sign Up</string>
+    <string name="copyright">Copyright © 2018 Out Out</string>
+
+    <!-- Strings related to user creation screens -->
+    <string name="genre_selection">CHOOSE YOUR GENRE(S)</string>
+    <string name="select_genres">Select up to 3 of your favourite genres.</string>
+    <string name="venue_selection">CHOOSE YOUR VENUE(S)</string>
+    <string name="select_venues">Select your favourite venue(s).</string>
+    <string name="budget_selection">CHOOSE YOUR BUDGET</string>
+    <string name="select_budget">Select your preferred entry cost.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="classical_title">Classical</string>
+    <string name="decades_title">Decades</string>
+    <string name="electronic_title">Electronic</string>
+    <string name="hip_hop_title">Hip Hop</string>
+    <string name="jazz_title">Jazz</string>
+    <string name="opera_title">Opera</string>
+    <string name="pop_title">Pop</string>
+    <string name="rock_title">Rock</string>
+    <string name="randb_title">R+B</string>
+    <string name="bar_title">Bar</string>
+    <string name="concert_hall_title">Concert Hall</string>
+    <string name="nightclub">Nightclub</string>
+    <string name="theatre">Theatre</string>
+    <string name="free_title">Free</string>
+    <string name="one_to_five_title">£1-£5</string>
+    <string name="six_to_ten_title">£6-£11</string>
+    <string name="eleven_title">£11+</string>
+    <string name="edit">Edit</string>
+
+    <!-- Strings related to main map screen -->
+    <string name="search_placeholder">Search</string>
+    <string name="location">Select a date</string>
+    <string name="user_welcome">Welcome Username,</string>
+    <string name="welcome_message">Enjoy Out Out, now available in Portsmouth to plan your unbeatable night out!</string>
+    <string name="welcome_message_2">Keep an eye out for updates, coming to other areas soon!</string>
+
+    <!-- Strings related to the venue cards -->
+    <string name="astoria_title">The Astoria</string>
+    <string name="astoria_time">Open At | 10PM - 4AM</string>
+
+    <!-- Strings related to my plan -->
+    <string name="my_plan"> My plan</string>
+    <string name="review_plan"> Review your unbeatable night out below.</string>
+    <string name="share_plan_prompt">Remember to share your experience with friends on social media to gain diamonds!</string>
+    <string name="date_placeholder">05/05/2018</string>
+    <string name="share_plan_button">Share plan</string>
+    <string name="add_button">Add</string>
+
+    <!-- Strings related to user profile area -->
+    <string name="username">Username</string>
+    <string name="user_email">UP722343@myport.ac.uk</string>
+    <string name="edit_your_profile">Edit profile</string>
+    <string name="previous_nights">PREVIOUS NIGHTS OUT</string>
+    <string name="account_management">Account management</string>
+    <string name="update_credentials">UPDATE</string>
+    <string name="title_activity_maps2">Maps2Activity</string>
+
+    <!-- Strings related to the settings area -->
+    <string name="outout_settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">LOGOUT</string>
+    <string name="edit_my_profile">Edit my profile</string>
+    <string name="app_info">App info</string>
+    <string name="daily_alerts">Daily alerts</string>
+    <string name="description">Description:</string>
+    <string name="outout_description">Out Out is a nightlife app that delivers the essential need to know information for planning an unbeatable night out.</string>
+    <string name="application_version">Application version:</string>
+    <string name="app_version_number">1.0.1</string>
+    <string name="switch_setting_off">OFF</string>
+    <string name="switch_setting_on">ON</string>
+
+    <!-- Strings related to the navigation drawer -->
+
+    <string name="reward_count">45</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="settings_drawer_title">Settings</string>
+
+
+    <!-- Strings related to the logout screen -->
+    <string name="logout_title">Logout</string>
+    <string name="logout_prompt">Are you sure you want to logout of your current session?</string>
+    <string name="cancel_title">Cancel</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_user_creation">userCreation</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_plan">planActivity</string>
+
+    <string name="myPlanListTitle">My plan</string>
+
+    <string name="myPlanListIntro1"></string>
+    <string name="myPlanListIntro2"></string>
+
+
+</resources>
