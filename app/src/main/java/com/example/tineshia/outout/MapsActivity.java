@@ -1,5 +1,8 @@
 package com.example.tineshia.outout;
 
+import android.animation.AnimatorSet;
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
@@ -24,6 +27,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
@@ -38,6 +43,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.daimajia.easing.Glider;
+import com.daimajia.easing.Skill;
 import com.example.tineshia.outout.model.Plan;
 import com.example.tineshia.outout.sql.DatabaseHelper;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -77,6 +86,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static android.view.View.GONE;
 import static java.util.Arrays.asList;
 
 
@@ -110,6 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private int requestState = 0;
+
 
 
     Toolbar toolbar;
@@ -216,19 +227,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         toolbar.bringToFront();
 
 
-
-
-
-        //Welcome alert if first login
-        onFirstTimeAlert();
-
-
-
-    }
-
-    public void onStart(){
-        super.onStart();
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -249,8 +247,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+
+        //Welcome alert if first login
+        onFirstTimeAlert();
+
         //Request API
         request();
+
+
+
+
+    }
+
+    public void onStart(){
+        super.onStart();
+
+
     }
 
     public void onResume(){
@@ -502,36 +514,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(l_list_event.size() > 0){
 
-            Button vMP_b = new Button(MapsActivity.this);
+            if(l_list_event.get(0) == null || l_list_event.get(0) == ""){
 
-            vMP_b.setBackgroundResource(R.color.colorPrimary);
-            vMP_b.setText("View My Plan");
-            vMP_b.setTextSize(16);
-            vMP_b.setTextColor(getResources().getColor(R.color.material_drawer_hint_text));
+                HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+                setMargins(cardContainer, 0, 0, 0, 0);
+                container.setVisibility(View.GONE);
+
+            }else{
+                Button vMP_b = new Button(MapsActivity.this);
+
+                vMP_b.setBackgroundResource(R.color.colorPrimary);
+                vMP_b.setText("View My Plan");
+                vMP_b.setTextSize(16);
+                vMP_b.setTextColor(getResources().getColor(R.color.material_drawer_hint_text));
 
 
-            RelativeLayout.LayoutParams vMP_b_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-            vMP_b.setLayoutParams(vMP_b_params);
+                RelativeLayout.LayoutParams vMP_b_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                vMP_b.setLayoutParams(vMP_b_params);
 
-            container.addView(vMP_b);
+                container.addView(vMP_b);
 
-            container.bringToFront();
-            vMP_b.bringToFront();
+                container.bringToFront();
+                container.setVisibility(View.VISIBLE);
+                vMP_b.bringToFront();
 
-            vMP_b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    openPlan(view);
-                }
-            });
+                vMP_b.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openPlan(view);
+                    }
+                });
 
-            HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
-            setMargins(cardContainer, 0, 0, 0, 120);
+                HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+                /*AnimatorSet set = new AnimatorSet();
+                set.playTogether(
+                        Glider.glide(Skill.BounceEaseInOut, 300, ObjectAnimator.ofFloat(cardContainer, "translationY", 0,20))
+                );
 
+                set.setDuration(200);
+                set.start();*/
+
+                setMargins(cardContainer, 0, 0, 0, 120);
+            }
 
         }else if(l_list_event.size() == 0){
 
-            container.removeAllViews();
+            HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+            setMargins(cardContainer, 0, 0, 0, 0);
+            container.setVisibility(View.GONE);
         }
 
 
@@ -550,30 +580,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(l_list_event.contains(eid)){
             //Do nothing
-            l_list_event.removeAll(Arrays.asList(eid));
+            l_list_event.remove(eid);
             addBtn.setText("Add");
-            Toast.makeText(this, "exist", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "exist", Toast.LENGTH_SHORT).show();
+
         }else{
-            l_list_event.add(eid);
+
+            if(l_list_event.isEmpty()){
+                l_list_event.add(eid);
+            }
+            else if(l_list_event.get(0) == null || l_list_event.get(0) == ""){
+
+                l_list_event.clear();
+                l_list_event.add(eid);
+            }else{
+                l_list_event.add(eid);
+            }
+
             addBtn.setText("Remove");
-            Toast.makeText(this, eid, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, eid, Toast.LENGTH_SHORT).show();
 
         }
 
-
-        //create or update event list database by current date
-        //Log.v("a", cD());
-
-
-
         editSingleEvent(cD());
-        //System.out.print(databaseHelper.getPlan(cD()));
 
-        List<Plan> planList = databaseHelper.getPlan(cD());
+        /*List<Plan> planList = databaseHelper.getPlan(cD());
 
         String tempEid = planList.get(0).getEidArr();
 
-        Log.v("aaaaac:", tempEid.toString());
+        Log.v("aaaaac:", tempEid.toString());*/
 
         viewMyPlanBtn();
     }
@@ -622,8 +657,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             List<String> planList_after = new ArrayList<String>(asList(planList_string.split(",")));
             for(int cp = 0; cp < planList_after.size();cp++){
-                l_list_event.add(planList_after.get(cp));
+                String toInsert = planList_after.get(cp).replaceAll(",","");
+                l_list_event.add(toInsert);
             }
+
+            Log.v("test when init",l_list_event.toString());
         }
 
         if(requestState == 1){
@@ -637,13 +675,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 if( l_list_event.contains(tags)){
                     addBtn.setText("Remove");
-                    Log.v(tags,"Remove");
-                    Log.v("list",l_list_event.toString());
                     //do nothing...
                 }else{
-
                     addBtn.setText("Add");
-                    Log.v(tags,"Add");
                 }
             }
         }

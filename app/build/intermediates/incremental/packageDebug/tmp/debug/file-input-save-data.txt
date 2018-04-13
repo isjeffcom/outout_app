@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Apr 13 13:51:33 BST 2018
+#Fri Apr 13 17:27:01 BST 2018
 7.path=lib/arm64-v8a/libimagepipeline.so
 2.base=/Users/jianfengwu/Documents/outout_app/app/build/intermediates/transforms/mergeJniLibs/debug/0
 5.set=DEX

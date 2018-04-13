@@ -12,9 +12,7 @@
     >
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/toExpandListener"
-        android:clickable="true"
-        android:onClick="clickToExpand"
+        android:id="@+id/all_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
@@ -28,6 +26,9 @@
             fresco:placeholderImage="@drawable/carde" />
 
         <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/toExpandListener"
+            android:clickable="true"
+            android:onClick="clickToExpand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -138,7 +139,6 @@
                     android:text="acdsjifsao sigjofidjgodhj sij dff sdf adsf"
                     android:textColor="@color/outout_dark"
                     />
-
 
             </android.support.v7.widget.LinearLayoutCompat>
 

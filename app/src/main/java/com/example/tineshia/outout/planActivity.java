@@ -160,6 +160,7 @@ public class planActivity extends AppCompatActivity {
 
         //Event list to String
         String id_where = "&eid=";
+
         for(int i=0;i < l_list_event.size();i++){
             if(i == l_list_event.size() - 1){
                 id_where = id_where + l_list_event.get(i);
@@ -270,11 +271,8 @@ public class planActivity extends AppCompatActivity {
 
         Object eid_obj = v.getTag();
         String eid = eid_obj.toString();
-        l_list_event.removeAll(Arrays.asList(eid));
-
-        if(l_list_event.size() == 1){
-            l_list_event.clear();
-        }
+        //ArrayUtils.removeElement(l_list_event, eid);
+        l_list_event.remove(eid);
 
         //create or update event list database by current date
         //Log.v("a", cD());
@@ -298,13 +296,13 @@ public class planActivity extends AppCompatActivity {
 
             //If eventList already in database
             databaseHelper.updatePlan(date, l_list_event.toString());
-            Log.v("a","a");
+            Log.v("a",l_list_event.toString());
 
         }else{
 
             //If not in database
             databaseHelper.addPlan(date, l_list_event.toString());
-            Log.v("a","b");
+            Log.v("b",l_list_event.toString());
         }
 
         //re render cards to view
@@ -318,9 +316,12 @@ public class planActivity extends AppCompatActivity {
         //Get tag
         Object eid_obj = v.getTag();
         String eid_string = eid_obj.toString();
-        //int eid = Integer.parseInt(eid_string);
+        Log.v("eid_string",eid_string);
 
-        LinearLayoutCompat expandLayout = (LinearLayoutCompat) findViewById(R.id.more_info_container).findViewWithTag(eid_string);
+        ViewGroup container = (ViewGroup) findViewById(R.id.myPlanList_Container);
+        CardView cardItem = (CardView) container.findViewWithTag(eid_string);
+
+        LinearLayoutCompat expandLayout = (LinearLayoutCompat) cardItem.findViewById(R.id.more_info_container);
         expandLayout.setVisibility(View.VISIBLE);
 
 
@@ -329,13 +330,6 @@ public class planActivity extends AppCompatActivity {
 
     public void clickToEBack(View v){
 
-
-        //Get tag
-        //Object eid_obj = v.getTag();
-        //String eid_string = eid_obj.toString();
-        //int eid = Integer.parseInt(eid_string);
-
-        //LinearLayoutCompat expandLayout = (LinearLayoutCompat) findViewById(R.id.more_info_container).findViewWithTag(eid_string);
         v.setVisibility(View.GONE);
 
 
@@ -343,6 +337,7 @@ public class planActivity extends AppCompatActivity {
     }
 
     public void initPlanlist(){
+
         //Init Plan list
         if(databaseHelper.checkPlan(cD())){
             List<Plan> planList = databaseHelper.getPlan(cD());
@@ -354,11 +349,14 @@ public class planActivity extends AppCompatActivity {
             List<String> planList_after = new ArrayList<String>(Arrays.asList(planList_string.split(",")));
             for(int cp = 0; cp < planList_after.size();cp++){
                 String toInsert = planList_after.get(cp).replaceAll(",","");
-                l_list_event.add(planList_after.get(cp));
+                l_list_event.add(toInsert);
             }
             l_list_event = planList_after;
 
         }
+
+
+
 
     }
 

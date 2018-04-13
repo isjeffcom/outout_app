@@ -272,6 +272,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                             Snackbar.make(nestedScrollView, "Check Internet connection.", Snackbar.LENGTH_LONG).show();
                         }
 
+                        else if(response.contains("empty")){
+                            Snackbar.make(nestedScrollView, "Check your input field.", Snackbar.LENGTH_LONG).show();
+                        }
+
                         else{
                             Snackbar.make(nestedScrollView, "Check Internet connection.", Snackbar.LENGTH_LONG).show();
                         }

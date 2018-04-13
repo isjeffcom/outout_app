@@ -191,26 +191,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             return;
         }
 
-
         request();
-        /*if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
-                , textInputEditTextPassword.getText().toString().trim())) {
-
-
-
-            //Save login state
-            //saveLogin();
-
-            //Intent toMap = new Intent(activity, MapsActivity.class);
-            //toMap.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-            //emptyInputEditText();
-            //startActivity(toMap);
-
-
-        } else {
-            // Snack Bar to show success message that record is wrong
-            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
-        }*/
     }
 
     public void request(){
@@ -239,6 +220,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
                         else if(response.contains("no")){
                             Snackbar.make(nestedScrollView, "Wrong Username or Password.", Snackbar.LENGTH_LONG).show();
+                        }
+
+                        else if(response.contains("empty")){
+                            Snackbar.make(nestedScrollView, "Check your input field.", Snackbar.LENGTH_LONG).show();
                         }
 
                         else{
@@ -299,7 +284,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     public void showLoading(){
         nDialog = new ProgressDialog(LoginActivity.this);
-        nDialog.setMessage("Creating your account...");
+        nDialog.setMessage("Log in in process...");
         nDialog.setTitle("Loading..");
         nDialog.setIndeterminate(false);
         nDialog.setCancelable(false);
