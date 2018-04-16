@@ -13,6 +13,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -58,8 +59,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        checkLogin();
 
+        checkLogin();
         initViews();
         initListeners();
         initObjects();
@@ -95,24 +96,25 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         String email = check_loginState.getString("email", null);
         String state = check_loginState.getString("state", null);
 
-        if(email != null && state.equals("2")){
-            Intent toMap = new Intent(activity, MapsActivity.class);
-            startActivity(toMap);
+        //If already logged in
+        if(email != null){
+            if(state.equals("2") || state.equals("3")){
+                Intent toMap = new Intent(activity, MapsActivity.class);
+                startActivity(toMap);
+            }
+
         }
 
+        //if didn't login
         else if(email == null){
             Toast.makeText(this, "Please Log in first", Toast.LENGTH_SHORT).show();
         }
 
+        //if didn't finished user creation
         else if(state.equals("1")){
             Intent toUC = new Intent(activity, userCreation.class);
             startActivity(toUC);
-            //Toast.makeText(this, state, Toast.LENGTH_SHORT).show();
         }
-
-
-
-
 
     }
 
