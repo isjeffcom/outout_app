@@ -112,6 +112,22 @@
 
     </RelativeLayout>
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/changeArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="26dp"
+        android:visibility="visible"
+        android:clickable="true"
+        android:gravity="right"
+        android:onClick="openLocationPicker"
+        android:text="Not in Portsmouth?"
+        android:textColor="#556579"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent" />
+
+
 
     <fragment
         android:id="@+id/map"

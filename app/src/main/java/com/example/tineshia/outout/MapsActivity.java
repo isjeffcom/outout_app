@@ -4,10 +4,12 @@ import android.animation.AnimatorSet;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -16,10 +18,13 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -35,6 +40,7 @@ import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,8 +62,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.jaeger.library.StatusBarUtil;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -126,12 +135,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static Context mContext;
     public String selected_date;
 
+    List<Marker> map_markers = new ArrayList<>();
+
     public static Context getContext() {
         return mContext;
     }
 
     private int requestState = 0;
 
+
+    //View
+    //LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
+    //HorizontalScrollView cardScrollView = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
 
 
     Toolbar toolbar;
@@ -233,16 +248,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         home_EventCard = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
         home_userProfile = (AppCompatImageButton) findViewById(R.id.user_profile_link);
         home_searchBar = (LinearLayout) findViewById(R.id.search_bar);
+        AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
         home_EventCard.bringToFront();
         home_userProfile.bringToFront();
         home_searchBar.bringToFront();
         toolbar.bringToFront();
+        changeAreaBtn.bringToFront();
 
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+
+
 
         //Link to User profile
         AppCompatImageButton userProfile = (AppCompatImageButton) findViewById(R.id.user_profile_link);
@@ -266,6 +281,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Request API
         request(selected_date);
 
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
 
 
@@ -273,7 +292,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void onStart(){
         super.onStart();
-        Log.v("res", api_event+"&rdate=%27"+selected_date+"%27");
+
+
+        new CountDownTimer(15000, 15000) {
+
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                Log.e("change area btn run","a");
+                AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
+                changeAreaBtn.setVisibility(View.GONE);
+            }
+        }.start();
 
 
     }
@@ -295,10 +328,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng Portsmouth = new LatLng(50.794332, -1.097800);
+
+        mMap.setIndoorEnabled(false);
+        mMap.setBuildingsEnabled(false);
 
         //Set map style
         try {
@@ -384,6 +421,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onResponse(JSONArray response) {
 
+
+
                         for(int i = 0; i< response.length(); i++){
                             JSONObject object = (JSONObject) response.opt(i);
                             try {
@@ -392,11 +431,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 d_venue_gl_la.add(object.getString("gl_la"));
                                 d_venue_gl_lo.add(object.getString("gl_lo"));
 
+
+                                double gl_la = Double.parseDouble(object.getString("gl_la"));
+                                double gl_lo = Double.parseDouble(object.getString("gl_lo"));
+
+                                //mMap.setOnMarkerClickListener(this);
+
+                                Marker venue_marker = mMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng(gl_la, gl_lo))
+                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white))
+                                        .title(object.getString("name")));
+                                venue_marker.setTag(object.getString("id"));
+
+                                map_markers.add(venue_marker);
+
+
+
+
                                 //mTextView.setText("Venue is: "+ d_venue_name + d_venue_gl_la +d_venue_gl_lo);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
+
+                        //Set marker click listener
+                        final LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
+                        //Change card and marker color when click on marker
+                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                            @Override
+                            public boolean onMarkerClick(Marker m) {
+                                //Log.e("a",m.getTag().toString());
+                                String tagId = m.getTag().toString();
+
+                                for (Marker marker : map_markers) {
+                                    if (marker.getTag().equals(tagId)) {
+                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
+
+                                    }else{
+                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
+                                    }
+                                }
+
+                                //m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
+                                for(int i=0;i<d_venue_id.size();i++){
+                                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag(d_event_toVenueId.get(i));
+
+                                    if(tagId.equals(d_event_toVenueId.get(i))){
+
+                                        cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
+                                    }else{
+                                        cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
+                                    }
+                                }
+                                return true;
+                            }
+                        });
 
                     }
                 }, new Response.ErrorListener() {
@@ -452,6 +541,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 AppCompatButton m_c_addBtn = (AppCompatButton) card.findViewById(R.id.m_c_addBtn);
                                 m_c_addBtn.setTag(object.getString("id"));
 
+                                LinearLayoutCompat card_more_info = (LinearLayoutCompat) card.findViewById(R.id.content_container);
+                                card_more_info.setTag(object.getString("toVenue"));
+
 
                                 container.addView(card, i);
 
@@ -488,9 +580,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void selectDate(View v){
-        Log.e("sd",selected_date);
-
-
 
         //Initial date from selected date
         Calendar calendar = Calendar.getInstance();
@@ -556,8 +645,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if(l_list_event.get(0) == null || l_list_event.get(0) == ""){
 
-                HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
-                setMargins(cardContainer, 0, 0, 0, 0);
+                HorizontalScrollView cardScrollView = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+                setMargins(cardScrollView, 0, 0, 0, 0);
                 container.setVisibility(View.GONE);
 
             }else{
@@ -585,7 +674,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
 
-                HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+
                 /*AnimatorSet set = new AnimatorSet();
                 set.playTogether(
                         Glider.glide(Skill.BounceEaseInOut, 300, ObjectAnimator.ofFloat(cardContainer, "translationY", 0,20))
@@ -594,13 +683,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 set.setDuration(200);
                 set.start();*/
 
-                setMargins(cardContainer, 0, 0, 0, 120);
+                HorizontalScrollView cardScrollView = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+                setMargins(cardScrollView, 0, 0, 0, 120);
             }
 
         }else if(l_list_event.size() == 0){
 
-            HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
-            setMargins(cardContainer, 0, 0, 0, 0);
+            //HorizontalScrollView cardContainer = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+            HorizontalScrollView cardScrollView = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
+            setMargins(cardScrollView, 0, 0, 0, 0);
             container.setVisibility(View.GONE);
         }
 
@@ -723,6 +814,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void contentContainerClick(View v){
+        String tagId = v.getTag().toString();
+        //Set marker click listener
+        LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
+
+
+
+        for (Marker marker : map_markers) {
+            if (marker.getTag().equals(tagId)) {
+                marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
+            }else{
+                marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
+            }
+        }
+
+        //m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
+        for(int i=0;i<d_venue_id.size();i++){
+            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag(d_event_toVenueId.get(i));
+
+            if(tagId.equals(d_event_toVenueId.get(i))){
+
+                cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
+            }else{
+                cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
+            }
+        }
+
+
+    }
+
 
     public void openPlan(View view){
 
@@ -794,17 +915,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         nDialog.show();
     }
 
-    /*public boolean outout_dateEqual(String d, String data_d){
-        boolean r = true;
+    public void openLocationPicker(View v){
+        Alerter.create(this)
+                .setTitle("Coming Soon...")
+                .setText("\n\n\n" +"We are looking forward \nto bring this services to \nnew area. \nWe coming soon!")
+                .setTitleAppearance(R.style.alertText_plan_title)
+                .setTextAppearance(R.style.alertText_plan_title)
+                .setIconColorFilter(0)
+                .setBackgroundResource(R.drawable.alert_bg_city)
+                .showIcon(false)
+                .setDuration(3000)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Alerter.hide();
+                    }
+                })
+                .show();
+    }
 
 
-
-        if(d.equals(data_d)){
-            r = true;
-        }else if(d)
-
-        return r;
-    }*/
 
 
 

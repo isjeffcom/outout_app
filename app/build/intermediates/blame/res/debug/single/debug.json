@@ -72,28 +72,28 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/layout/abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_share_icon.png.flat",
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-xhdpi/ic_share_icon.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_back_arrow.png.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-xhdpi/ic_back_arrow.png"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/layout/abc_expanded_menu_layout.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-mdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_password_selector.xml.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/password_selector.xml"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_back_arrow.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-xhdpi/ic_back_arrow.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_disabled.9.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_password_selector.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/password_selector.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_europe_samara.flat",
@@ -160,16 +160,16 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/res/drawable-mdpi-v4/design_ic_visibility_off.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_edmonton.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_edmonton"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-hdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-xhdpi-v4/abc_list_longpressed_holo.9.png"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_edmonton.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_edmonton"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_cayenne.flat",
@@ -204,12 +204,12 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/res/layout/design_layout_tab_icon.xml"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_africa_juba.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_africa_juba"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_icon_dark_pressed.9.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_africa_juba.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_africa_juba"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_placeholder.png.flat",
@@ -252,28 +252,28 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable/abc_item_background_holo_light.xml"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_activity_mock.xml.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/res/layout/activity_mock.xml"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_asia_shanghai.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_asia_shanghai"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_user_profile_button.png.flat",
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-xxhdpi/ic_user_profile_button.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_asia_shanghai.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_asia_shanghai"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_activity_mock.xml.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/res/layout/activity_mock.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_north_dakota_center.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_north_dakota_center"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_atlantic_stanley.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_atlantic_stanley"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_icon_dark_pressed.9.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-base-10.0.0.aar/1d1a8b7b844f0c4a53d42ee0f62c3d04/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_atlantic_stanley.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_atlantic_stanley"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_asia_jakarta.flat",
@@ -316,12 +316,12 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_asia_kuala_lumpur"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_opera_idle.png.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/opera_idle.png"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_material_drawer_header.xml.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/res/layout/material_drawer_header.xml"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_opera_idle.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/opera_idle.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_nav_header_maps2.xml.flat",
@@ -348,12 +348,12 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_atlantic_jan_mayen"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_antarctica_troll.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_antarctica_troll"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-mdpi-v4/abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_tooltip_frame_light.xml.flat",
@@ -372,12 +372,12 @@
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/pop_button_selector.xml"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_europe_busingen.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_europe_busingen"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_europe_busingen.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_europe_busingen"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/anim_menu_show_up_tr.xml.flat",
@@ -392,24 +392,24 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_alerter_ic_face.xml.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/res/drawable-anydpi-v21/alerter_ic_face.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_text_field.png.flat",
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-hdpi/ic_text_field.png"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_alerter_ic_face.xml.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/res/drawable-anydpi-v21/alerter_ic_face.xml"
-    },
-    {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_design_password_eye.xml.flat",
-        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/res/drawable/design_password_eye.xml"
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_alerter_ic_face.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/alerter-2.0.4.aar/87a21cfffa1681870668c51e974e2ef0/res/drawable-xxxhdpi-v4/alerter_ic_face.png"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_design_password_eye.xml.flat",
+        "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/res/drawable/design_password_eye.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_glace_bay.flat",

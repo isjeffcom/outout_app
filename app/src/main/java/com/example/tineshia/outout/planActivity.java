@@ -440,10 +440,10 @@ public class planActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Alerter.hide();
-                            /*SharedPreferences change_state = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                            SharedPreferences change_state = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                             SharedPreferences.Editor s_editor = change_state.edit();
                             s_editor.putString("state", "3");
-                            s_editor.apply();*/
+                            s_editor.apply();
                         }
                     })
                     .show();
