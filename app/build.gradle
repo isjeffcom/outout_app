@@ -62,4 +62,7 @@ dependencies {
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
+    //Time and date processor
+    implementation 'net.danlew:android.joda:2.9.9'
+
 }

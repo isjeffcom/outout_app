@@ -35,6 +35,7 @@ MERGED from [com.github.skydoves:powermenu:2.0.3] /Users/jianfengwu/.gradle/cach
 MERGED from [com.github.tarek360:instacapture:2.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/instacapture-2.0.0.aar/da7ee769c0a90a2b99b851f94f57ba74/AndroidManifest.xml:2:1-17:12
 MERGED from [com.daimajia.easing:library:2.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-2.0.aar/b38bb62b86070f5ed32f5487433a1290/AndroidManifest.xml:2:1-12:12
 MERGED from [com.daimajia.androidanimations:library:2.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-2.3.aar/5e067a1208cd489440042ba3161a7aab/AndroidManifest.xml:2:1-12:12
+MERGED from [net.danlew:android.joda:2.9.9] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/AndroidManifest.xml:2:1-8:12
 MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:2:1-12:12
 MERGED from [com.mikepenz:iconics-core:3.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/iconics-core-3.0.3.aar/1d76445aea8d153631800dbc62074766/AndroidManifest.xml:2:1-12:12
 MERGED from [com.mikepenz:fastadapter:3.2.4] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/fastadapter-3.2.4.aar/6bd9478bc4f72799b2d1ab4fd5663c7a/AndroidManifest.xml:2:1-12:12
@@ -279,6 +280,8 @@ MERGED from [com.daimajia.easing:library:2.0] /Users/jianfengwu/.gradle/caches/t
 MERGED from [com.daimajia.easing:library:2.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-2.0.aar/b38bb62b86070f5ed32f5487433a1290/AndroidManifest.xml:8:5-10:41
 MERGED from [com.daimajia.androidanimations:library:2.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-2.3.aar/5e067a1208cd489440042ba3161a7aab/AndroidManifest.xml:8:5-10:41
 MERGED from [com.daimajia.androidanimations:library:2.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-2.3.aar/5e067a1208cd489440042ba3161a7aab/AndroidManifest.xml:8:5-10:41
+MERGED from [net.danlew:android.joda:2.9.9] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/AndroidManifest.xml:6:5-43
+MERGED from [net.danlew:android.joda:2.9.9] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/AndroidManifest.xml:6:5-43
 MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:8:5-10:41
 MERGED from [com.mikepenz:materialize:1.1.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialize-1.1.2.aar/ebb6d6f848b6872f3916790d1b2a3331/AndroidManifest.xml:8:5-10:41
 MERGED from [com.mikepenz:iconics-core:3.0.3] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/iconics-core-3.0.3.aar/1d76445aea8d153631800dbc62074766/AndroidManifest.xml:8:5-10:41

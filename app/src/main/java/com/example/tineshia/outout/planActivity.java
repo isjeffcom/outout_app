@@ -1,5 +1,6 @@
 package com.example.tineshia.outout;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -66,6 +67,9 @@ public class planActivity extends AppCompatActivity {
     List<String>  l_list_event = new ArrayList<String>();
 
     private Integer requestState = 0;
+    private String selected_date = cD();
+
+    private ProgressDialog nDialog;
 
     private void initObjects() {
         databaseHelper = new DatabaseHelper(planActivity.this);
@@ -75,8 +79,6 @@ public class planActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan);
-
-
 
         //Display alert when first time
         onFirstTimeAlert();
@@ -103,8 +105,16 @@ public class planActivity extends AppCompatActivity {
 
         super.onStart();
 
+        //Getting selected date from map activity from extra and request data
+        selected_date = getIntent().getStringExtra("selectedDate");
+
+        TextView top_date = (TextView) findViewById(R.id.top_date);
+        top_date.setText(selected_date);
+
         //Request and render
         request();
+
+
 
         //Get screenshot from the Map activity and set as background
         if(getIntent().hasExtra("forwardBackground")) {
@@ -117,11 +127,15 @@ public class planActivity extends AppCompatActivity {
             Drawable background = ap_overall.getBackground();
             background.setColorFilter(0xE6000000, PorterDuff.Mode.XOR );
         }
+
+
     }
 
     public void request(){
+        showLoading();
+
         //Init Plan list
-        initPlanlist();
+        initPlanlist(selected_date);
         //Initial dynamic inflater layout.
         final LayoutInflater vi = (LayoutInflater) getLayoutInflater();
 
@@ -170,7 +184,6 @@ public class planActivity extends AppCompatActivity {
 
         }
 
-        Log.v("A", id_where);
 
         // Request EVENT LIST
         JsonArrayRequest request_events = new JsonArrayRequest
@@ -244,6 +257,8 @@ public class planActivity extends AppCompatActivity {
                                 //Set request state to finished
                                 requestState = 1;
 
+                                nDialog.dismiss();
+
                                 //mTextView2.setText("Events is: "+ d_venue_name);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -281,9 +296,9 @@ public class planActivity extends AppCompatActivity {
         CardView sItem = (CardView) container.findViewWithTag(eid);
         container.removeView(sItem);
 
-        editSingleEvent(cD());
+        editSingleEvent(selected_date);
 
-        List<Plan> planList = databaseHelper.getPlan(cD());
+        List<Plan> planList = databaseHelper.getPlan(selected_date);
 
         String tempEid = planList.get(0).getEidArr();
 
@@ -336,11 +351,10 @@ public class planActivity extends AppCompatActivity {
 
     }
 
-    public void initPlanlist(){
-
+    public void initPlanlist(String init_date){
         //Init Plan list
-        if(databaseHelper.checkPlan(cD())){
-            List<Plan> planList = databaseHelper.getPlan(cD());
+        if(databaseHelper.checkPlan(init_date)){
+            List<Plan> planList = databaseHelper.getPlan(init_date);
 
             String planList_string = planList.get(0).getEidArr();
             planList_string = planList_string.substring(1, planList_string.length()-1);
@@ -436,6 +450,15 @@ public class planActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void showLoading(){
+        nDialog = new ProgressDialog(planActivity.this);
+        nDialog.setMessage("Getting data...");
+        nDialog.setTitle("Loading..");
+        nDialog.setIndeterminate(false);
+        nDialog.setCancelable(false);
+        nDialog.show();
     }
 
 }

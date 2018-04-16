@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sk-rSK/values-sk-rSK.xml",
+            "map": [
+                {
+                    "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/values-sk-rSK/values-sk-rSK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}
