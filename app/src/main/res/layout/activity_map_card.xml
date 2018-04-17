@@ -12,7 +12,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginStart="14dp"
-    map:cardCornerRadius="10dp"
+    map:cardCornerRadius="8dp"
     map:cardElevation="13dp">
 
     <android.support.v7.widget.LinearLayoutCompat

@@ -1,46 +1,33 @@
 package com.example.tineshia.outout;
 
-import android.animation.AnimatorSet;
-import android.animation.LayoutTransition;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,11 +36,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-import com.daimajia.easing.Glider;
-import com.daimajia.easing.Skill;
 import com.example.tineshia.outout.model.Plan;
 import com.example.tineshia.outout.sql.DatabaseHelper;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -67,7 +51,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.jaeger.library.StatusBarUtil;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -77,34 +60,21 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.tapadoo.alerter.Alerter;
-import com.tarek360.instacapture.Instacapture;
-import com.tarek360.instacapture.listener.SimpleScreenCapturingListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import static android.view.View.GONE;
 import static java.util.Arrays.asList;
 
 
@@ -131,6 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String token = "zDcUlI2Sbb9rN9Coq5La";
     private static final String api_venue = "http://outout.isjeff.com/api/data_venue.php?token=" + token;
     private static final String api_event = "http://outout.isjeff.com/api/data_event.php?token=" + token;
+    private static final String api_data_u = "http://outout.isjeff.com/api/data_u.php?token=" + token;
 
     private static Context mContext;
     public String selected_date;
@@ -203,7 +174,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder().withActivity(this).withHeaderBackground(R.drawable.drawer_bg)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Jeff").withEmail(getUserEmail()).withIcon(R.drawable.c2)
+                        new ProfileDrawerItem().withName(getUserName()).withEmail(getUserEmail()).withIcon(R.drawable.c2)
                 ).withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener(){
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
@@ -266,7 +237,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MapsActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(MapsActivity.this, profileActivity.class);
 
                 if (intent != null) {
                     MapsActivity.this.startActivity(intent);
@@ -302,7 +273,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             public void onFinish() {
-                Log.e("change area btn run","a");
                 AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
                 changeAreaBtn.setVisibility(View.GONE);
             }
@@ -317,15 +287,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onResume();
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -368,13 +330,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return email;
     }
 
+    public String getUserName(){
+        SharedPreferences check_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String un = check_loginState.getString("username", null);
+        return un;
+    }
+
     public void onFirstTimeAlert(){
         SharedPreferences check_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String state = check_loginState.getString("state", null);
 
         if(state.equals("1")){
             Alerter.create(this)
-                    .setTitle("Welcome Jeff,")
+                    .setTitle("Welcome " + getUserName() + ",")
                     .setText("Enjoy Out Out, now available \nin Portsmouth to plan your \nunbeatable night out!" +
                             "\n\n\n" +
                             "Keep an eye out for \nupdates, coming to \nother areas soon!"
@@ -787,15 +755,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             planList_string = planList_string.replaceAll("","");
 
             List<String> planList_after = new ArrayList<String>(asList(planList_string.split(",")));
+
             for(int cp = 0; cp < planList_after.size();cp++){
                 String toInsert = planList_after.get(cp).replaceAll(",","");
                 l_list_event.add(toInsert);
             }
-
-            Log.v("test when init",l_list_event.toString());
         }
 
         if(requestState == 1){
+
+
 
             for (int i = 0; i < cardContainer.getChildCount(); i++) {
                 View thisView = cardContainer.getChildAt(i);
@@ -812,9 +781,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         }
+
+        viewMyPlanBtn();
+
+
     }
 
     public void contentContainerClick(View v){
+
         String tagId = v.getTag().toString();
         //Set marker click listener
         LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);

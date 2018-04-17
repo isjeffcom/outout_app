@@ -26,6 +26,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="Share Plan"
+        android:background="@color/outout_transparent"
+        android:outlineProvider="background"
+        android:onClick="clickToInvite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/top_date"
         android:layout_width="wrap_content"

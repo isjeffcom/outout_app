@@ -1368,10 +1368,6 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_argentina_san_juan"
     },
     {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_c2.jpg.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/c2.jpg"
-    },
-    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_africa_abidjan.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_africa_abidjan"
     },
@@ -2126,6 +2122,10 @@
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_material_drawer_badge.xml.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/res/drawable/material_drawer_badge.xml"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_c2.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/c2.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_indian_maldives.flat",
@@ -3238,10 +3238,6 @@
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_ic_notifications_black_24dp.xml.flat",
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/ic_notifications_black_24dp.xml"
-    },
-    {
-        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_content_plan.xml.flat",
-        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/layout/content_plan.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",

@@ -2,6 +2,7 @@ package com.example.tineshia.outout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageButton;
@@ -22,12 +24,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tineshia.outout.model.Plan;
 import com.example.tineshia.outout.sql.DatabaseHelper;
@@ -42,7 +46,9 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class planActivity extends AppCompatActivity {
 
@@ -50,7 +56,7 @@ public class planActivity extends AppCompatActivity {
     private String token = "zDcUlI2Sbb9rN9Coq5La";
     private String api_venue = "http://outout.isjeff.com/api/data_venue.php?token=" + token;
     private String api_event = "http://outout.isjeff.com/api/data_event.php?token=" + token;
-
+    private String api_up_plan = "http://outout.isjeff.com/api/up_plan.php?token=" + token;
 
     //Save data from Json
     public final ArrayList<String> d_venue_id = new ArrayList<String>();
@@ -111,6 +117,10 @@ public class planActivity extends AppCompatActivity {
         TextView top_date = (TextView) findViewById(R.id.top_date);
         top_date.setText(selected_date);
 
+        //Remove previous card in container if there are any
+        ViewGroup container = (ViewGroup) findViewById(R.id.myPlanList_Container);
+        container.removeAllViews();
+
         //Request and render
         request();
 
@@ -138,6 +148,7 @@ public class planActivity extends AppCompatActivity {
         initPlanlist(selected_date);
         //Initial dynamic inflater layout.
         final LayoutInflater vi = (LayoutInflater) getLayoutInflater();
+
 
         //Layout container
         final ViewGroup container = (ViewGroup) findViewById(R.id.myPlanList_Container);
@@ -203,6 +214,8 @@ public class planActivity extends AppCompatActivity {
                                 //d_event_img.add(object.getString("img"));
                                 //d_event_des.add(object.getString("des"));
                                 //d_event_toVenueId.add(object.getString("toVenue"));
+
+
 
                                 //Layout single template
                                 View card = vi.inflate(R.layout.activity_plan_card, null);
@@ -324,6 +337,12 @@ public class planActivity extends AppCompatActivity {
 
     }
 
+    public String getUserId(){
+        SharedPreferences check_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String uid = check_loginState.getString("uid", null);
+        return uid;
+    }
+
     public void clickToExpand(View v){
 
 
@@ -347,8 +366,10 @@ public class planActivity extends AppCompatActivity {
 
         v.setVisibility(View.GONE);
 
+    }
 
-
+    public void clickToInvite(View v){
+        up_plan();
     }
 
     public void initPlanlist(String init_date){
@@ -372,6 +393,63 @@ public class planActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void up_plan(){
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // Request VENUE LIST
+        StringRequest upPlan = new StringRequest
+                (Request.Method.POST, api_up_plan, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //Log.e("a",response);
+                        if(response.contains("successful")){
+                            String[] un_before = response.split(",");
+                            String get_pid = un_before[1];
+
+
+
+                            Intent i = new Intent(Intent.ACTION_SEND);
+                            i.setType("text/plain");
+                            i.putExtra(Intent.EXTRA_TEXT, "http://outout.isjeff.com/share.html?pid=" + get_pid);
+                            startActivity(Intent.createChooser(i, "Share my plan to"));
+
+
+
+                        }
+
+                        else{
+                            Toast.makeText(planActivity.this, "Check Internet connection.", Toast.LENGTH_SHORT).show();
+                            //Snackbar.make(nestedScrollView, "Check Internet connection.", Snackbar.LENGTH_LONG).show();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(planActivity.this, "Check Internet connection.", Toast.LENGTH_SHORT).show();
+                        //Snackbar.make(nestedScrollView, "Check Internet connection.", Snackbar.LENGTH_LONG).show();
+                    }
+                }){
+            @Override
+            //POST ITEM
+            protected Map<String, String> getParams() {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("eid_a", l_list_event.toString());
+                params.put("uid", getUserId());
+                params.put("date", getIntent().getStringExtra("selectedDate"));
+
+
+                return params;
+            }
+        };
+
+
+
+        // Add the request to the RequestQueue.
+        queue.add(upPlan);
     }
 
 

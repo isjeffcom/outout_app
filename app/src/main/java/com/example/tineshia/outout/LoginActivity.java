@@ -53,6 +53,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     private String token = "zDcUlI2Sbb9rN9Coq5La";
     private String api_cuser = "http://outout.isjeff.com/api/c_user.php?token=" + token;
+    private final String api_data_u = "http://outout.isjeff.com/api/data_u.php?token=" + token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
      */
 
 
-    public void saveLogin(){
+    public void saveLogin(String un, String uid){
         SharedPreferences save_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor s_editor = save_loginState.edit();
         s_editor.putString("email", textInputEditTextEmail.getText().toString());
+        s_editor.putString("username", un);
+        s_editor.putString("uid", uid);
         s_editor.putString("state", "2");
         s_editor.apply();
 
@@ -99,8 +102,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         //If already logged in
         if(email != null){
             if(state.equals("2") || state.equals("3")){
-                Intent toMap = new Intent(activity, MapsActivity.class);
-                startActivity(toMap);
+                //Go to main activity
+                toMap();
             }
 
         }
@@ -209,8 +212,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         nDialog.dismiss();
 
                         if(response.contains("pass")){
+                            String[] un_before = response.split(",");
+                            String get_username = un_before[1];
+                            String get_userid = un_before[2];
+
+
                             //Save login state
-                            saveLogin();
+                            saveLogin(get_username, get_userid);
 
                             //To map
                             toMap();
@@ -280,7 +288,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     public void toMap(){
         Intent toMap = new Intent(activity, MapsActivity.class);
-        toMap.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+        //toMap.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
         startActivity(toMap);
     }
 

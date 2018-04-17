@@ -76,13 +76,13 @@
         <activity
             android:name="com.example.tineshia.outout.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name="com.example.tineshia.outout.ProfileActivity" />
+        <activity android:name="com.example.tineshia.outout.profileActivity" />
         <activity
             android:name="com.example.tineshia.outout.userCreation"
             android:label="@string/title_activity_user_creation"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.example.tineshia.outout.Main2Activity"
+            android:name="com.example.tineshia.outout.editProfileActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme" />
         <activity

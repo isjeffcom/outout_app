@@ -8,6 +8,7 @@
     <color name="colorTextHint">#00ffde</color>
     <color name="outout_colour">#00ffde</color>
     <color name="outout_dark">#000000</color>
+    <color name="outout_alert_red">#ff6464</color>
 
     <color name="outout_transparent">#00000000</color>
 

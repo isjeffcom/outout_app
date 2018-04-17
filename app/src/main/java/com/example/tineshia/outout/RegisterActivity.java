@@ -118,10 +118,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     }
 
-    public void saveReg(){
+    public void saveReg(String uid){
         SharedPreferences save_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor s_editor = save_loginState.edit();
         s_editor.putString("email", textInputEditTextEmail.getText().toString().trim());
+        s_editor.putString("username", textInputEditTextName.getText().toString().trim());
+        s_editor.putString("uid", uid);
         s_editor.putString("state", "1");
         s_editor.apply();
 
@@ -235,16 +237,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     }
 
-    /**
-     * This method is to empty all input edit text
-     */
-    private void emptyInputEditText() {
-        textInputEditTextName.setText(null);
-        textInputEditTextEmail.setText(null);
-        textInputEditTextPassword.setText(null);
-        textInputEditTextConfirmPassword.setText(null);
-    }
-
     public void request(){
 
         // Instantiate the RequestQueue.
@@ -259,8 +251,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
                         if(response.contains("regs")){
                             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
-
-                            saveReg();
+                            String[] un_before = response.split(",");
+                            String get_userid = un_before[1];
+                            saveReg(get_userid);
                             toUserCreation();
                         }
 
