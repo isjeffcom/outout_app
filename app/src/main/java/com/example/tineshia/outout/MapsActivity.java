@@ -7,17 +7,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,9 +38,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tineshia.outout.model.Plan;
+import com.example.tineshia.outout.model.Venue;
 import com.example.tineshia.outout.sql.DatabaseHelper;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -69,10 +71,8 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import static java.util.Arrays.asList;
@@ -82,18 +82,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private HorizontalScrollView home_EventCard;
-    private AppCompatImageButton home_burgerMenu;
+
     private AppCompatImageButton home_userProfile;
     private LinearLayout home_searchBar;
     private ProgressDialog nDialog;
 
     private DatabaseHelper databaseHelper;
 
-    private int mColor;
-
     private AccountHeader headerResult = null;
     private Drawer result = null;
-    private View slideView;
 
 
     private DatePickerDialog.OnDateSetListener mDatesetListener;
@@ -101,7 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String token = "zDcUlI2Sbb9rN9Coq5La";
     private static final String api_venue = "http://outout.isjeff.com/api/data_venue.php?token=" + token;
     private static final String api_event = "http://outout.isjeff.com/api/data_event.php?token=" + token;
-    private static final String api_data_u = "http://outout.isjeff.com/api/data_u.php?token=" + token;
 
     private static Context mContext;
     public String selected_date;
@@ -127,12 +123,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     ArrayList<String> d_venue_name = new ArrayList<String>();
     ArrayList<String> d_venue_gl_la = new ArrayList<String>();
     ArrayList<String> d_venue_gl_lo = new ArrayList<String>();
-    ArrayList<String> d_event_name = new ArrayList<String>();
+    /*ArrayList<String> d_event_name = new ArrayList<String>();
     ArrayList<String> d_event_id = new ArrayList<String>();
     ArrayList<String> d_event_time = new ArrayList<String>();
     ArrayList<String> d_event_date = new ArrayList<String>();
-    ArrayList<String> d_event_img = new ArrayList<String>();
+    ArrayList<String> d_event_img = new ArrayList<String>();*/
     ArrayList<String> d_event_toVenueId = new ArrayList<String>();
+    ArrayList<String> d_event_typeId = new ArrayList<String>();
 
 
     List<String>  l_list_event = new ArrayList<String>();
@@ -154,8 +151,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         selected_date = cD();
-        //Set status bar transparent
-        //StatusBarUtil.setTransparent(MapsActivity.this);
 
         setContentView(R.layout.activity_maps);
 
@@ -164,6 +159,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Init some basic runtime object
         initObjects();
+
+        //Init venue list
+        initVenue();
 
         //Init toolbar
         toolbar =(Toolbar) findViewById(R.id.toolbar) ;
@@ -212,23 +210,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .build();
 
 
-
-
-
         //Bring to front
+        ImageView gradient_bg = (ImageView) findViewById(R.id.gradient_bg);
         home_EventCard = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
         home_userProfile = (AppCompatImageButton) findViewById(R.id.user_profile_link);
         home_searchBar = (LinearLayout) findViewById(R.id.search_bar);
         AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
+        gradient_bg.bringToFront();
         home_EventCard.bringToFront();
         home_userProfile.bringToFront();
         home_searchBar.bringToFront();
         toolbar.bringToFront();
         changeAreaBtn.bringToFront();
-
-
-
-
 
         //Link to User profile
         AppCompatImageButton userProfile = (AppCompatImageButton) findViewById(R.id.user_profile_link);
@@ -252,6 +245,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Request API
         request(selected_date);
 
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -264,16 +259,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onStart(){
         super.onStart();
 
+        final AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
+        final LinearLayoutCompat changeAreaLayout = (LinearLayoutCompat) findViewById(R.id.changeAreaLayout);
+
+        changeAreaLayout.bringToFront();
 
         new CountDownTimer(15000, 15000) {
 
-
             public void onTick(long millisUntilFinished) {
-
+                //do nothing...
             }
 
             public void onFinish() {
-                AppCompatTextView changeAreaBtn = (AppCompatTextView) findViewById(R.id.changeArea);
                 changeAreaBtn.setVisibility(View.GONE);
             }
         }.start();
@@ -347,7 +344,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             "\n\n\n" +
                             "Keep an eye out for \nupdates, coming to \nother areas soon!"
                     )
-                    .setTitleAppearance(R.style.alertText)
+                    .setTitleAppearance(R.style.alertTextTitle)
                     .setTextAppearance(R.style.alertText)
                     .setIconColorFilter(0)
                     .setBackgroundResource(R.drawable.alert_bg_city)
@@ -373,7 +370,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         showLoading();
 
-        Log.e("request date", request_date);
         //Initial dynamic inflater layout.
         final LayoutInflater vi = (LayoutInflater) getLayoutInflater();
 
@@ -381,7 +377,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final ViewGroup container = (ViewGroup) findViewById(R.id.event_card_container);
 
         // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
+        final RequestQueue queue = Volley.newRequestQueue(this);
 
         // Request VENUE LIST
         JsonArrayRequest request_venues = new JsonArrayRequest
@@ -389,16 +385,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onResponse(JSONArray response) {
 
-
+                        d_venue_id.clear();
+                        d_venue_name.clear();
 
                         for(int i = 0; i< response.length(); i++){
+
                             JSONObject object = (JSONObject) response.opt(i);
                             try {
+
                                 d_venue_id.add(object.getString("id"));
                                 d_venue_name.add(object.getString("name"));
                                 d_venue_gl_la.add(object.getString("gl_la"));
                                 d_venue_gl_lo.add(object.getString("gl_lo"));
 
+                                if(databaseHelper.checkVenue(object.getString("id"))){
+                                    databaseHelper.updateVenue(object.getString("id"), object.getString("name"), object.getString("address"));
+                                    //Log.e("v",object.getString("address"));
+                                }else{
+                                    databaseHelper.addVenue(object.getString("id"), object.getString("name"), object.getString("address"), object.getString("gl_la"), object.getString("gl_lo"));
+                                }
 
                                 double gl_la = Double.parseDouble(object.getString("gl_la"));
                                 double gl_lo = Double.parseDouble(object.getString("gl_lo"));
@@ -409,10 +414,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .position(new LatLng(gl_la, gl_lo))
                                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white))
                                         .title(object.getString("name")));
-                                venue_marker.setTag(object.getString("id"));
+                                venue_marker.setTag("mi,"+object.getString("id"));
 
                                 map_markers.add(venue_marker);
-
 
 
 
@@ -429,20 +433,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             @Override
                             public boolean onMarkerClick(Marker m) {
                                 //Log.e("a",m.getTag().toString());
-                                String tagId = m.getTag().toString();
+
+                                String tagId_before = m.getTag().toString();
+                                String[] tagId_after = tagId_before.split(",");
+                                String tagId = tagId_after[1];
 
                                 for (Marker marker : map_markers) {
-                                    if (marker.getTag().equals(tagId)) {
-                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
 
+                                    if (marker.getTag().equals(tagId_before)) {
+                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
                                     }else{
                                         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
                                     }
                                 }
 
-                                //m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
                                 for(int i=0;i<d_venue_id.size();i++){
-                                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag(d_event_toVenueId.get(i));
+                                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi,"+d_event_toVenueId.get(i));
 
                                     if(tagId.equals(d_event_toVenueId.get(i))){
 
@@ -459,6 +465,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MapsActivity.this, "Check your internet.", Toast.LENGTH_SHORT).show();
                 //mTextView.setText("That didn't work!" + error);
             }
         });
@@ -469,7 +476,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onResponse(JSONArray response) {
 
-
                         for(int i = 0; i< response.length(); i++){
                             JSONObject object = (JSONObject) response.opt(i);
                             try {
@@ -479,6 +485,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 //d_event_date.add(object.getString("date"));
                                 //d_event_img.add(object.getString("img"));
                                 d_event_toVenueId.add(object.getString("toVenue"));
+                                d_event_typeId.add(object.getString("type"));
 
 
 
@@ -495,22 +502,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 TextView c_title = (TextView) card.findViewById(R.id.m_c_title);
                                 TextView c_time = (TextView) card.findViewById(R.id.m_c_time);
                                 SimpleDraweeView c_img = (SimpleDraweeView) card.findViewById(R.id.m_c_img);
+                                SimpleDraweeView m_t_icon_et = (SimpleDraweeView) card.findViewById(R.id.m_t_icon_et);
+                                SimpleDraweeView m_t_icon_em = (SimpleDraweeView) card.findViewById(R.id.m_t_icon_em);
 
                                 //Set Text
-                                c_time.setText(getVenue(object.getString("toVenue")) + " | " + object.getString("time"));
                                 c_title.setText(object.getString("name"));
-
+                                c_time.setText(getVenue(object.getString("toVenue"))+" | "+object.getString("time"));
 
                                 //Set image using fresco
                                 Uri c_imageUrl = Uri.parse(object.getString("img"));
                                 c_img.setImageURI(c_imageUrl);
 
+                                //Set tag icon
+                                String m_t_img = object.getString("type_icon").toString();
+                                String[] m_t_res = m_t_img.split(",");
+
+                                Uri et_imageUrl = Uri.parse(m_t_res[0]);
+                                Uri em_imageUrl = Uri.parse(m_t_res[1]);
+
+                                m_t_icon_et.setImageURI(et_imageUrl);
+                                m_t_icon_em.setImageURI(em_imageUrl);
+
                                 //Give tag
                                 AppCompatButton m_c_addBtn = (AppCompatButton) card.findViewById(R.id.m_c_addBtn);
-                                m_c_addBtn.setTag(object.getString("id"));
+                                m_c_addBtn.setTag("addbtn,"+ object.getString("id"));
 
                                 LinearLayoutCompat card_more_info = (LinearLayoutCompat) card.findViewById(R.id.content_container);
-                                card_more_info.setTag(object.getString("toVenue"));
+                                card_more_info.setTag("mi,"+object.getString("toVenue"));
 
 
                                 container.addView(card, i);
@@ -525,7 +543,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                 nDialog.dismiss();
 
-                                //mTextView2.setText("Events is: "+ d_venue_name);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -535,15 +552,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //mTextView.setText("That didn't work!" + error);
+                        Toast.makeText(MapsActivity.this, "Check your internet.", Toast.LENGTH_SHORT).show();
                     }
                 });
 
         // Add the request to the RequestQueue.
         queue.add(request_venues);
         queue.add(request_events);
-
-
 
     }
 
@@ -595,16 +610,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    public String getVenue(String thisId){
-        String res = null;
-        for(int i=0; i < d_venue_id.size(); i++){
-            if(thisId.equals(d_venue_id.get(i))){
-                res = d_venue_name.get(i);
-            }
-        }
 
-        return res;
-    }
 
     public void viewMyPlanBtn(){
         RelativeLayout container = (RelativeLayout) findViewById(R.id.viewMyPlan_Container);
@@ -642,15 +648,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
 
-
-                /*AnimatorSet set = new AnimatorSet();
-                set.playTogether(
-                        Glider.glide(Skill.BounceEaseInOut, 300, ObjectAnimator.ofFloat(cardContainer, "translationY", 0,20))
-                );
-
-                set.setDuration(200);
-                set.start();*/
-
                 HorizontalScrollView cardScrollView = (HorizontalScrollView) findViewById(R.id.event_card_scrollview);
                 setMargins(cardScrollView, 0, 0, 0, 120);
             }
@@ -663,26 +660,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             container.setVisibility(View.GONE);
         }
 
-
     }
-
 
     public void addToEventList(View v){
 
 
 
         Object eid_obj = v.getTag();
-        String eid = eid_obj.toString();
+        String eid_before = eid_obj.toString();
+        String[] eid_after = eid_before.split(",");
+        String eid = eid_after[1];
+
+
         LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
-        Button addBtn = (Button) cardContainer.findViewWithTag(eid);
+        Button addBtn = (Button) cardContainer.findViewWithTag(eid_before);
 
 
         if(l_list_event.contains(eid)){
             //Do nothing
             l_list_event.remove(eid);
             addBtn.setText("Add");
-            //Toast.makeText(this, "exist", Toast.LENGTH_SHORT).show();
-
         }else{
 
             if(l_list_event.isEmpty()){
@@ -697,17 +694,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             addBtn.setText("Remove");
-            //Toast.makeText(this, eid, Toast.LENGTH_SHORT).show();
 
         }
 
         editSingleEvent(selected_date);
-
-        /*List<Plan> planList = databaseHelper.getPlan(cD());
-
-        String tempEid = planList.get(0).getEidArr();
-
-        Log.v("aaaaac:", tempEid.toString());*/
 
         viewMyPlanBtn();
     }
@@ -722,20 +712,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void editSingleEvent(String date){
 
-
         if(databaseHelper.checkPlan(date)){
-
             //If eventList already in database
             databaseHelper.updatePlan(date, l_list_event.toString());
-
         }else{
-
             //If not in database
             databaseHelper.addPlan(date, l_list_event.toString());
         }
-
-        //re render cards to view
-
     }
 
     public void initPlanlist(){
@@ -764,14 +747,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if(requestState == 1){
 
-
-
             for (int i = 0; i < cardContainer.getChildCount(); i++) {
                 View thisView = cardContainer.getChildAt(i);
                 View thisAddButton = thisView.findViewById(R.id.m_c_addBtn);
                 Object tags_obj = thisAddButton.getTag();
-                String tags = tags_obj.toString();
-                Button addBtn = (Button) thisAddButton.findViewWithTag(tags);
+                String tags_before = tags_obj.toString();
+                String[] tags_after = tags_before.split(",");
+                String tags = tags_after[1];
+
+                Button addBtn = (Button) thisAddButton.findViewWithTag(tags_before);
 
                 if( l_list_event.contains(tags)){
                     addBtn.setText("Remove");
@@ -789,14 +773,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void contentContainerClick(View v){
 
-        String tagId = v.getTag().toString();
+        String tagId_before = v.getTag().toString();
+        String[] tagId_after = tagId_before.split(",");
+        String tagId = tagId_after[1];
+
         //Set marker click listener
         LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
 
 
 
         for (Marker marker : map_markers) {
-            if (marker.getTag().equals(tagId)) {
+            if (marker.getTag().equals(tagId_before)) {
                 marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
             }else{
                 marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
@@ -805,16 +792,46 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
         for(int i=0;i<d_venue_id.size();i++){
-            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag(d_event_toVenueId.get(i));
+
+            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi," + d_event_toVenueId.get(i));
 
             if(tagId.equals(d_event_toVenueId.get(i))){
-
                 cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
             }else{
                 cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
             }
         }
+    }
 
+    public String getVenue(String thisId){
+
+        String res = null;
+
+        for(int i=0; i < d_venue_id.size(); i++){
+            if(thisId.equals(d_venue_id.get(i))){
+                res = d_venue_name.get(i);
+            }
+        }
+
+        return res;
+    }
+
+    public void initVenue(){
+
+        //Init Venue list for quick start up
+        List<Venue> venueList = databaseHelper.getVenue();
+
+        for(int i = 0; i<venueList.size();i++){
+
+            //Get data
+            int venueList_id = venueList.get(i).getId();
+            String venueList_name = venueList.get(i).getName();
+
+            //Push to array
+            d_venue_id.add(Integer.toString(venueList_id));
+            d_venue_name.add(venueList_name);
+
+        }
 
     }
 
@@ -907,20 +924,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 })
                 .show();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

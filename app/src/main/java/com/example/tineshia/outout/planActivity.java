@@ -34,6 +34,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tineshia.outout.model.Plan;
+import com.example.tineshia.outout.model.Venue;
 import com.example.tineshia.outout.sql.DatabaseHelper;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.tapadoo.alerter.Alerter;
@@ -62,13 +63,13 @@ public class planActivity extends AppCompatActivity {
     public final ArrayList<String> d_venue_id = new ArrayList<String>();
     public final ArrayList<String> d_venue_name = new ArrayList<String>();
     ArrayList<String> d_venue_add = new ArrayList<String>();
-    ArrayList<String> d_event_name = new ArrayList<String>();
+    /*ArrayList<String> d_event_name = new ArrayList<String>();
     ArrayList<String> d_event_id = new ArrayList<String>();
     ArrayList<String> d_event_time = new ArrayList<String>();
     ArrayList<String> d_event_date = new ArrayList<String>();
     ArrayList<String> d_event_img = new ArrayList<String>();
     ArrayList<String> d_event_des = new ArrayList<String>();
-    ArrayList<String> d_event_toVenueId = new ArrayList<String>();
+    ArrayList<String> d_event_toVenueId = new ArrayList<String>();*/
 
     List<String>  l_list_event = new ArrayList<String>();
 
@@ -102,6 +103,9 @@ public class planActivity extends AppCompatActivity {
 
         //Init helper activity
         initObjects();
+
+        //Init Venue List
+        initVenue();
 
 
     }
@@ -161,6 +165,9 @@ public class planActivity extends AppCompatActivity {
                 (Request.Method.GET, api_venue, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+
+                        d_venue_id.clear();
+                        d_venue_name.clear();
 
                         for(int i = 0; i< response.length(); i++){
                             JSONObject object = (JSONObject) response.opt(i);
@@ -249,6 +256,8 @@ public class planActivity extends AppCompatActivity {
                                 TextView pCE_date = (TextView) card.findViewById(R.id.pCE_date);
                                 TextView pCE_time = (TextView) card.findViewById(R.id.pCE_time);
                                 TextView pCE_des = (TextView) card.findViewById(R.id.pCE_des);
+                                SimpleDraweeView pCE_tag_et = card.findViewById(R.id.p_t_icon_et);
+                                SimpleDraweeView pCE_tag_em = card.findViewById(R.id.p_t_icon_em);
 
                                 pCE_location.setText(getVenueAdd(object.getString("toVenue")));
                                 pCE_date.setText(object.getString("date"));
@@ -258,6 +267,16 @@ public class planActivity extends AppCompatActivity {
                                 //Set tag
                                 p_c_addBtn.setTag(object.getString("id"));
                                 p_c_single.setTag(object.getString("id"));
+
+                                //Set tag icon
+                                String m_t_img = object.getString("type_icon").toString();
+                                String[] m_t_res = m_t_img.split(",");
+
+                                Uri et_imageUrl = Uri.parse(m_t_res[0]);
+                                Uri em_imageUrl = Uri.parse(m_t_res[1]);
+
+                                pCE_tag_et.setImageURI(et_imageUrl);
+                                pCE_tag_em.setImageURI(em_imageUrl);
 
                                 LinearLayoutCompat eListner = (LinearLayoutCompat) card.findViewById(R.id.toExpandListener);
                                 LinearLayoutCompat mI_container = (LinearLayoutCompat) card.findViewById(R.id.more_info_container);
@@ -390,12 +409,11 @@ public class planActivity extends AppCompatActivity {
 
         }
 
-
-
-
     }
 
     public void up_plan(){
+        showLoading();
+
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -404,6 +422,7 @@ public class planActivity extends AppCompatActivity {
                 (Request.Method.POST, api_up_plan, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        nDialog.dismiss();
                         //Log.e("a",response);
                         if(response.contains("successful")){
                             String[] un_before = response.split(",");
@@ -429,6 +448,7 @@ public class planActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        nDialog.dismiss();
                         Toast.makeText(planActivity.this, "Check Internet connection.", Toast.LENGTH_SHORT).show();
                         //Snackbar.make(nestedScrollView, "Check Internet connection.", Snackbar.LENGTH_LONG).show();
                     }
@@ -451,34 +471,6 @@ public class planActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(upPlan);
     }
-
-
-
-
-
-    public String getVenue(String thisId){
-        String res = null;
-        for(int i=0; i < d_venue_id.size(); i++){
-            if(thisId.equals(d_venue_id.get(i))){
-                res = d_venue_name.get(i);
-            }
-        }
-
-        return res;
-    }
-
-    public String getVenueAdd(String thisId){
-        String res = null;
-        for(int i=0; i < d_venue_id.size(); i++){
-            if(thisId.equals(d_venue_id.get(i))){
-                res = d_venue_add.get(i);
-            }
-        }
-
-        return res;
-    }
-
-
 
     public String cD(){
         //Initial date and get current date
@@ -527,6 +519,53 @@ public class planActivity extends AppCompatActivity {
                     .show();
         }
 
+
+    }
+
+    public String getVenue(String thisId){
+        String res = null;
+        for(int i=0; i < d_venue_id.size(); i++){
+            if(thisId.equals(d_venue_id.get(i))){
+                res = d_venue_name.get(i);
+            }
+        }
+
+        return res;
+    }
+
+    public String getVenueAdd(String thisId){
+        String res = null;
+        for(int i=0; i < d_venue_id.size(); i++){
+
+            if(thisId.equals(d_venue_id.get(i))){
+                res = d_venue_add.get(i);
+            }
+        }
+
+        return res;
+    }
+
+    public void initVenue(){
+
+        //Init Venue list for quick start up
+        List<Venue> venueList = databaseHelper.getVenue();
+
+        for(int i = 0; i<venueList.size();i++){
+
+            //Get data
+            int venueList_id = venueList.get(i).getId();
+            String venueList_name = venueList.get(i).getName();
+            String venueList_add = venueList.get(i).getAdd();
+            /*String venueList_gl_la = venueList.get(i).getGl_la();
+            String venueList_gl_lo = venueList.get(i).getGl_lo();*/
+
+            //Push to array
+            d_venue_id.add(Integer.toString(venueList_id));
+            d_venue_name.add(venueList_name);
+            d_venue_add.add(venueList_add);
+            /*d_venue_gl_la.add(venueList_gl_la);
+            d_venue_gl_lo.add(venueList_gl_lo);*/
+        }
 
     }
 

@@ -45,16 +45,24 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-28dp"
+                android:gravity="right">
+
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginStart="250dp"
-                    android:layout_marginLeft="250dp"
-                    android:gravity="end"
-                    android:text="@string/edit_your_profile"
+                    android:layout_marginRight="20dp"
                     android:clickable="true"
+                    android:gravity="end"
                     android:onClick="toEditProfile"
+                    android:text="@string/edit_your_profile"
                     android:textColor="#181818"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -90,121 +98,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <GridLayout
+                android:id="@+id/tag_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#00efdd"
+                android:columnCount="3"
+                android:horizontalSpacing="10dp"
+                android:numColumns="auto_fit"
+                android:orientation="horizontal"
+                android:paddingTop="6dp"
+                android:verticalSpacing="10dp"
+                android:clickable="true"
+                android:onClick="toUc">
+
+            </GridLayout>
+
 
         </android.support.v7.widget.LinearLayoutCompat>
 
-        <android.support.v7.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="6dp"
-            android:background="#00efdd"
-            android:orientation="horizontal"
-            >
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/decades_title"
-                android:gravity="center"
-                android:layout_marginBottom="2dp"
-                android:layout_marginStart="70dp"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingEnd="5dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/electronic_title"
-                android:gravity="center"
-                android:layout_marginBottom="2dp"
-                android:layout_marginStart="5dp"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingEnd="5dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hip_hop_title"
-                android:gravity="center"
-                android:layout_marginBottom="2dp"
-                android:layout_marginStart="5dp"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingEnd="5dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
-
-        </android.support.v7.widget.LinearLayoutCompat>
-
-        <android.support.v7.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="2dp"
-            android:background="#00efdd"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            >
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nightclub"
-                android:gravity="center"
-                android:layout_marginBottom="5dp"
-                android:layout_marginStart="85dp"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingEnd="5dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/eleven_title"
-                android:gravity="center"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingStart="1dp"
-                android:paddingLeft="1dp"
-                android:paddingRight="1dp"
-                android:paddingEnd="1dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/edit"
-                android:gravity="center"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingStart="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingEnd="5dp"
-                android:textColor="#181818"
-                android:background="@drawable/remove_button_field"
-                android:textSize="17sp"/>
-
-        </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"

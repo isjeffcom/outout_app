@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/usc_all"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/uc_border"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="addTag"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/usc_t_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:placeholderImage="@drawable/decades_icon_grey">
+
+        </com.facebook.drawee.view.SimpleDraweeView>
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/usc_t_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="Classical" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

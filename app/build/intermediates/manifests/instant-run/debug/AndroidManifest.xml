@@ -89,6 +89,10 @@
             android:name="com.example.tineshia.outout.planActivity"
             android:label="@string/title_activity_plan"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.example.tineshia.outout.appInfoActivity"
+            android:label="@string/title_activity_appinfo"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="android.support.VERSION"

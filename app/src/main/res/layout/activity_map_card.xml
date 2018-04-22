@@ -12,7 +12,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginStart="14dp"
-    map:cardCornerRadius="8dp"
+    map:cardCornerRadius="4dp"
     map:cardElevation="13dp">
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -69,16 +69,37 @@
             android:layout_marginBottom="5dp"
             android:background="#ff999999"/>
 
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginLeft="4dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/m_t_icon_et"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                fresco:placeholderImage="@drawable/nightclub_icon_grey" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/m_t_icon_em"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                fresco:placeholderImage="@drawable/one_to_five_icon_grey" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/m_c_addBtn"
             android:layout_width="48dp"
             android:layout_height="20dp"
             android:layout_marginLeft="90dp"
-            android:text="ADD"
+            android:layout_marginTop="-20dp"
+            android:background="@drawable/button_border"
             android:onClick="addToEventList"
-            android:textColor = "#333333"
-            android:textSize="10dp"
-            android:background="@drawable/button_border" />
+            android:text="ADD"
+            android:textColor="#333333"
+            android:textSize="10dp" />
 
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="140dp"

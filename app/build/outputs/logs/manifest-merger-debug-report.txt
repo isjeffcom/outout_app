@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
 MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:2:1-13:12
 MERGED from [com.mikepenz:materialdrawer:6.0.7] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/materialdrawer-6.0.7.aar/593be5a8fe20bfbe8c99c8ef1aff7c20/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:27.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/AndroidManifest.xml:17:1-22:12
@@ -45,20 +45,20 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/jianfengwu/.gradle/cac
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/0beb693a76e28c7384db5885e19efbcb/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/6e75e453a42ec84ddc5b27a0560142b1/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/84f5eba517e6bda25c074db03ed6e702/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
-INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
+INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
 	package
 		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:3:5-42
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
-		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
-		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12
 		INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:11-69
@@ -89,7 +89,7 @@ MERGED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu
 	android:name
 		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:13:22-64
 application
-ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:15:5-76:19
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:15:5-80:19
 MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:11:5-20
 MERGED from [com.jaeger.statusbarutil:library:1.4.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/library-1.4.0.aar/6d2f060e4adda00f5a1795c8d77dc886/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/b6f725120c0947ba7ea6a957eac2ec65/AndroidManifest.xml:9:5-20
@@ -216,6 +216,14 @@ ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.x
 		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:75:13-44
 	android:name
 		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:73:13-41
+activity#com.example.tineshia.outout.appInfoActivity
+ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:76:9-79:47
+	android:label
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:78:13-59
+	android:theme
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:79:13-44
+	android:name
+		ADDED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:77:13-44
 uses-sdk
 INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml
@@ -319,11 +327,11 @@ ADDED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/ca
 	android:name
 		ADDED from [com.android.support:cardview-v7:26.1.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/8391260d78124f3c672f718819b2662e/AndroidManifest.xml:24:13-51
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12 reason: com.google.android.gms.location has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-78:12 reason: com.google.android.gms.location requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/jianfengwu/Documents/outout_app/app/src/main/AndroidManifest.xml:2:1-82:12 reason: com.google.android.gms.location requested WRITE_EXTERNAL_STORAGE
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:10.0.0] /Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.0.0.aar/69b6293d7419d7d3fd6915c30f2d69e6/AndroidManifest.xml:19:5-78
 	android:name

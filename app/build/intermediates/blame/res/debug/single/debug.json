@@ -1972,6 +1972,10 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_africa_ouagadougou"
     },
     {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_usc_selections.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/layout/usc_selections.xml"
+    },
+    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_europe_brussels.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_europe_brussels"
     },
@@ -2228,6 +2232,10 @@
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_grand_turk"
     },
     {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/logo.png"
+    },
+    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_abc_action_bar_title_item.xml.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/650df8f42914aca44e2ad3238e9de9a4/res/layout/abc_action_bar_title_item.xml"
     },
@@ -2286,6 +2294,10 @@
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_cayman.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_cayman"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_gradient_bg.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/gradient_bg.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_header_item_layout.xml.flat",
@@ -2516,6 +2528,10 @@
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable-hdpi/ic_mail_white.png"
     },
     {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_activity_appinfo.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/layout/activity_appinfo.xml"
+    },
+    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_asia_jerusalem.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_asia_jerusalem"
     },
@@ -2534,6 +2550,10 @@
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_america_araguaina.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_america_araguaina"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_edit.png.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/edit.png"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_design_navigation_item.xml.flat",
@@ -3768,6 +3788,10 @@
         "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/hiphop_idle.png"
     },
     {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/layout_activity_profile_tag.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/layout/activity_profile_tag.xml"
+    },
+    {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/63ef902a3c575dcb684f428c033db324/res/drawable-hdpi-v4/design_ic_visibility_off.png"
     },
@@ -4878,6 +4902,10 @@
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_africa_bangui.flat",
         "source": "/Users/jianfengwu/.gradle/caches/transforms-1/files-1.1/android.joda-2.9.9.aar/cff48e044086b3af23e790c8c0cc062a/res/raw/joda_africa_bangui"
+    },
+    {
+        "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/drawable_uc_border.xml.flat",
+        "source": "/Users/jianfengwu/Documents/outout_app/app/src/main/res/drawable/uc_border.xml"
     },
     {
         "merged": "/Users/jianfengwu/Documents/outout_app/app/build/intermediates/res/merged/debug/raw_joda_europe_ljubljana.flat",

@@ -73,6 +73,10 @@
             android:name=".planActivity"
             android:label="@string/title_activity_plan"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".appInfoActivity"
+            android:label="@string/title_activity_appinfo"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

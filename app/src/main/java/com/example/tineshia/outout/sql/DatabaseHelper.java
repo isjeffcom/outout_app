@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.tineshia.outout.model.Plan;
 import com.example.tineshia.outout.model.User;
+import com.example.tineshia.outout.model.Venue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,11 @@ import java.util.List;
 
         // User table name
         private static final String TABLE_USER = "user";
-        // User table name
+        // Planlist table name
         private static final String TABLE_PLANLIST = "planlist";
+
+        // Venue table name
+        private static final String TABLE_VENUE = "venue";
 
         // User Table Columns names
         private static final String COLUMN_USER_ID = "user_id";
@@ -40,6 +44,13 @@ import java.util.List;
         private static final String COLUMN_PLANLIST_DATE = "plan_date";
         private static final String COLUMN_PLANLIST_EIDARR = "plan_eidArr";
 
+        // venue Table Columns names
+        private static final String COLUMN_VENUE_ID = "venue_id";
+        private static final String COLUMN_VENUE_NAME = "venue_name";
+        private static final String COLUMN_VENUE_ADD = "venue_add";
+        private static final String COLUMN_VENUE_GL_LA = "venue_gl_la";
+        private static final String COLUMN_VENUE_GL_LO = "venue_gl_lo";
+
         // create table sql query = USER
         private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
@@ -48,6 +59,10 @@ import java.util.List;
         // create table sql query = PLANLIST
         private String CREATE_PLANLIST_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_PLANLIST + "("
                 + COLUMN_PLANLIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_PLANLIST_DATE + " TEXT," + COLUMN_PLANLIST_EIDARR + " TEXT" + ")";
+
+        // create table sql query = VENUE
+        private String CREATE_VENUE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_VENUE + "("
+                + COLUMN_VENUE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_VENUE_NAME + " TEXT," + COLUMN_VENUE_ADD + " TEXT," + COLUMN_VENUE_GL_LA + " TEXT," + COLUMN_VENUE_GL_LO + " TEXT" + ")";
 
         // drop table sql query
         private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
@@ -296,11 +311,10 @@ import java.util.List;
             db.close();
         }
 
-        public void delPlan(String date){
+        public void cleanPlan(){
             SQLiteDatabase db = this.getWritableDatabase();
             // delete user record by id
-            db.delete(TABLE_PLANLIST, COLUMN_PLANLIST_DATE + " = ?",
-                    new String[]{String.valueOf(date)});
+            db.execSQL("delete from "+ TABLE_PLANLIST);
             db.close();
         }
 
@@ -376,6 +390,119 @@ import java.util.List;
 
             // return user list
             return planlist;
+        }
+
+        public void addVenue(String venue_id, String venue_name, String venue_add, String venue_gl_la, String venue_gl_lo){
+
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            //Create table if not exist
+            db.execSQL(CREATE_PLANLIST_TABLE);
+
+            ContentValues values = new ContentValues();
+
+            values.put(COLUMN_VENUE_ID, venue_id);
+            values.put(COLUMN_VENUE_NAME, venue_name);
+            values.put(COLUMN_VENUE_ADD, venue_add);
+            values.put(COLUMN_VENUE_GL_LA, venue_gl_la);
+            values.put(COLUMN_VENUE_GL_LO, venue_gl_lo);
+
+            // Inserting Row
+            db.insert(TABLE_VENUE, null, values);
+            db.close();
+        }
+
+        public void updateVenue(String venue_id, String venue_name, String venue_add){
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_VENUE_NAME, venue_name);
+            values.put(COLUMN_VENUE_ADD, venue_add);
+            //values.put(COLUMN_VENUE_GL_LA, venue_gl_la);
+            //values.put(COLUMN_VENUE_GL_LO, venue_gl_lo);
+
+            // updating row
+            db.update(TABLE_VENUE, values, COLUMN_VENUE_ID + " = ?",
+                    new String[]{String.valueOf(venue_id)});
+            db.close();
+        }
+
+        public List<Venue> getVenue() {
+
+            // array of columns to fetch
+            String[] columns = {
+                    COLUMN_VENUE_ID,
+                    COLUMN_VENUE_NAME,
+                    COLUMN_VENUE_ADD,
+            };
+            List<Venue> venueList = new ArrayList<Venue>();
+
+
+
+            SQLiteDatabase db = this.getReadableDatabase();
+            db.execSQL(CREATE_VENUE_TABLE);
+
+            Cursor cursor = db.query(TABLE_VENUE, //Table to query
+                    columns,    //columns to return
+                    null,        //columns for the WHERE clause
+                    null,        //The values for the WHERE clause
+                    null,       //group the rows
+                    null,       //filter by row groups
+                    null); //The sort order
+
+
+            // Traversing through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    Venue venue = new Venue();
+                    venue.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_VENUE_ID))));
+                    venue.setName(cursor.getString(cursor.getColumnIndex(COLUMN_VENUE_NAME)));
+                    venue.setAdd(cursor.getString(cursor.getColumnIndex(COLUMN_VENUE_ADD)));
+                    //venue.setGl_la(cursor.getString(cursor.getColumnIndex(COLUMN_VENUE_GL_LA)));
+                    //venue.setGl_lo(cursor.getString(cursor.getColumnIndex(COLUMN_VENUE_GL_LO)));
+
+                    // Adding plan to list
+                    venueList.add(venue);
+
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+            db.close();
+
+            // return user list
+            return venueList;
+        }
+
+        public boolean checkVenue(String id){
+            SQLiteDatabase db = this.getReadableDatabase();
+            db.execSQL(CREATE_VENUE_TABLE);
+
+
+            // array of columns to fetch
+            String[] columns = {
+                    COLUMN_VENUE_ID
+            };
+
+            // selection criteria
+            String selection = COLUMN_VENUE_ID + " = ?" ;
+
+            // selection arguments
+            String[] selectionArgs = {id};
+
+            // query plan with conditions
+            Cursor cursor = db.query(TABLE_VENUE, //Table to query
+                    columns,                    //columns to return
+                    selection,                  //columns for the WHERE clause
+                    selectionArgs,              //The values for the WHERE clause
+                    null,                       //group the rows
+                    null,                       //filter by row groups
+                    null);                      //The sort order
+
+            int cursorCount = cursor.getCount();
+
+            cursor.close();
+            db.close();
+            return cursorCount > 0;
         }
 
     }

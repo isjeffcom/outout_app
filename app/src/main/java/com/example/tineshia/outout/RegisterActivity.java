@@ -251,8 +251,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
                         if(response.contains("regs")){
                             Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+                            Log.e("userid",response.toString());
                             String[] un_before = response.split(",");
                             String get_userid = un_before[1];
+
                             saveReg(get_userid);
                             toUserCreation();
                         }

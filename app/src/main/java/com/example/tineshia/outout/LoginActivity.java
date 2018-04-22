@@ -13,7 +13,6 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -55,6 +54,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private String api_cuser = "http://outout.isjeff.com/api/c_user.php?token=" + token;
     private final String api_data_u = "http://outout.isjeff.com/api/data_u.php?token=" + token;
 
+    public int login_state = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,13 +83,20 @@ public class LoginActivity extends Activity implements View.OnClickListener {
      */
 
 
-    public void saveLogin(String un, String uid){
+    public void saveLogin(String un, String uid, String tags){
         SharedPreferences save_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor s_editor = save_loginState.edit();
         s_editor.putString("email", textInputEditTextEmail.getText().toString());
         s_editor.putString("username", un);
         s_editor.putString("uid", uid);
-        s_editor.putString("state", "2");
+        s_editor.putString("tags", tags);
+
+        if(tags == null){
+            s_editor.putString("state", "1");
+        }else{
+            s_editor.putString("state", "2");
+        }
+
         s_editor.apply();
 
     }
@@ -97,26 +105,16 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         SharedPreferences check_loginState = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
 
         String email = check_loginState.getString("email", null);
-        String state = check_loginState.getString("state", null);
+
 
         //If already logged in
         if(email != null){
-            if(state.equals("2") || state.equals("3")){
-                //Go to main activity
-                toMap();
-            }
-
+            toMap();
         }
 
         //if didn't login
         else if(email == null){
             Toast.makeText(this, "Please Log in first", Toast.LENGTH_SHORT).show();
-        }
-
-        //if didn't finished user creation
-        else if(state.equals("1")){
-            Intent toUC = new Intent(activity, userCreation.class);
-            startActivity(toUC);
         }
 
     }
@@ -215,10 +213,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             String[] un_before = response.split(",");
                             String get_username = un_before[1];
                             String get_userid = un_before[2];
+                            String get_tags = un_before[3];
+
+
+
+                            if(get_tags == null){
+                                login_state = 1;
+                            }else{
+                                login_state = 2;
+                            }
 
 
                             //Save login state
-                            saveLogin(get_username, get_userid);
+                            saveLogin(get_username, get_userid, get_tags);
 
                             //To map
                             toMap();
@@ -287,9 +294,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
     public void toMap(){
-        Intent toMap = new Intent(activity, MapsActivity.class);
-        //toMap.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-        startActivity(toMap);
+
+
+        if(login_state == 1){
+            Intent toMap = new Intent(activity, userCreation.class);
+            startActivity(toMap);
+        }else{
+            Intent toMap = new Intent(activity, MapsActivity.class);
+            startActivity(toMap);
+        }
+
+
+
+
     }
 
     public void showLoading(){
