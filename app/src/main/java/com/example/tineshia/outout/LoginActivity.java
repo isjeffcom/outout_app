@@ -44,8 +44,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private AppCompatButton appCompatButtonLogin;
     private AppCompatButton appCompatButtonRegister;
 
-    private AppCompatTextView textViewLinkRegister;
-
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
     private ProgressDialog nDialog;
@@ -76,6 +74,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             decorView.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);}
+    }
+
+    //Override system back button from go back to login
+    @Override
+    public void onBackPressed() {
+        //No thing happened
     }
 
     /**
@@ -132,8 +136,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         appCompatButtonLogin = (AppCompatButton) findViewById(R.id.appCompatButtonLogin);
 
-        textViewLinkRegister = (AppCompatTextView) findViewById(R.id.textViewLinkRegister);
-
         appCompatButtonRegister = (AppCompatButton) findViewById(R.id.appCompatButtonRegister);
     }
 
@@ -142,7 +144,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
      */
     private void initListeners() {
         appCompatButtonLogin.setOnClickListener(this);
-        textViewLinkRegister.setOnClickListener(this);
         appCompatButtonRegister.setOnClickListener(this);
     }
 
@@ -170,11 +171,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 // Navigate to RegisterActivity
                 Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intentRegister);
-                break;
-            case R.id.textViewLinkRegister:
-                //Navigate to MainActivity temporarily
-                Intent intentMain = new Intent (getApplicationContext(), MapsActivity.class);
-                startActivity(intentMain);
         }
     }
 

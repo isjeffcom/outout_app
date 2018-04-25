@@ -66,7 +66,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
-    private User user;
 
     private RequestQueue queue;
     private ProgressDialog nDialog;
@@ -83,6 +82,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         initListeners();
         initObjects();
 
+    }
+
+    //Override system back button from go back to system
+    @Override
+    public void onBackPressed() {
+        //No thing happened
     }
 
     @Override
@@ -158,7 +163,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private void initObjects() {
         inputValidation = new InputValidation(activity);
         databaseHelper = new DatabaseHelper(activity);
-        user = new User();
 
     }
 
@@ -193,8 +197,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      */
     private void postDataToSQLite() {
 
-        showLoading();
-
         if (!inputValidation.isInputEditTextFilled(textInputEditTextName, textInputLayoutName, getString(R.string.error_message_name))) {
             return;
         }
@@ -207,37 +209,35 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
             return;
         }
-        if (!inputValidation.isInputEditTextMatches(textInputEditTextPassword, textInputEditTextConfirmPassword,
-                textInputLayoutConfirmPassword, getString(R.string.error_password_match))) {
-            return;
-        }
-
-        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
-
-            user.setName(textInputEditTextName.getText().toString().trim());
-            user.setEmail(textInputEditTextEmail.getText().toString().trim());
-            user.setPassword(textInputEditTextPassword.getText().toString().trim());
-            request();
 
 
-            //toUserCreation();
+        String password_pre = textInputEditTextPassword.getText().toString().trim();
+        String password_con = textInputEditTextConfirmPassword.getText().toString().trim();
 
-            //databaseHelper.addUser(user);
 
-            // Snack Bar to show success message that record saved successfully
-            //Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
-            //emptyInputEditText();
+        //If password match
+        if (password_pre.equals(password_con)) {
+
+            //If password > 6
+            if(password_pre.length() >= 6){
+                request();
+            }else{
+                Snackbar.make(nestedScrollView, "Password must be at least 6 characters long", Snackbar.LENGTH_LONG).show();
+            }
+
 
 
         } else {
             // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(nestedScrollView, "Password does not match", Snackbar.LENGTH_LONG).show();
         }
 
 
     }
 
     public void request(){
+
+        showLoading();
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);

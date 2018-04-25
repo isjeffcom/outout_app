@@ -136,6 +136,12 @@ public class userCreation extends Activity {
 
     }
 
+    //Override system back button from go back to login
+    @Override
+    public void onBackPressed() {
+        //No thing happened
+    }
+
     public void request(){
 
 

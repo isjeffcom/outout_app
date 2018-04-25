@@ -286,6 +286,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+    //Override system back button from go back to login
+    @Override
+    public void onBackPressed() {
+        //No thing happened
+    }
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -601,14 +608,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mDatesetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int mouth, int day) {
+
+                //Start from 0
                 mouth = mouth + 1;
+
+                //Change data type
                 String s_mouth = Integer.toString(mouth);
                 String s_day = Integer.toString(day);
+
                 //if mouth 1-9 convert to 01-09
                 if(s_mouth.length() == 1){
                     s_mouth = "0" + s_mouth;
                 }
 
+                //if day 1-9 convert to 01-09
                 if(s_day.length() == 1){
                     s_day = "0" + s_day;
                 }

@@ -163,6 +163,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:gravity="center"
+                    android:text="You haven't share any night out yet"
+                    android:textColor="#999999" />
+
             </android.support.v7.widget.LinearLayoutCompat>
 
         </ScrollView>

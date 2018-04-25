@@ -135,6 +135,8 @@ public class profileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
 
+                        pa_container.removeAllViews();
+
                         for(int i=0;i<response.length();i++){
                             JSONObject object = (JSONObject) response.opt(i);
 
@@ -153,6 +155,7 @@ public class profileActivity extends AppCompatActivity {
 
                                 SimpleDraweeView c_img = (SimpleDraweeView) s.findViewById(R.id.p_c_img);
 
+
                                 //Set image using fresco
                                 Uri c_imageUrl = Uri.parse(object.getString("img"));
                                 c_img.setImageURI(c_imageUrl);
@@ -161,7 +164,7 @@ public class profileActivity extends AppCompatActivity {
 
                             }catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(profileActivity.this, "Check your internet connection.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(profileActivity.this, "We can't find anything here.", Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -171,7 +174,7 @@ public class profileActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(profileActivity.this, "Check your internet connection.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(profileActivity.this, "We can't find anything here.", Toast.LENGTH_SHORT).show();
                     }
                 });
 
