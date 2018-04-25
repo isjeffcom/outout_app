@@ -117,6 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     Toolbar toolbar;
+    DatePickerDialog dialog;
 
     //Save data from Json
     ArrayList<String> d_venue_id = new ArrayList<String>();
@@ -264,7 +265,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         changeAreaLayout.bringToFront();
 
-        new CountDownTimer(15000, 15000) {
+        new CountDownTimer(1500000, 15000) {
 
             public void onTick(long millisUntilFinished) {
                 //do nothing...
@@ -393,6 +394,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             JSONObject object = (JSONObject) response.opt(i);
                             try {
 
+
+
                                 d_venue_id.add(object.getString("id"));
                                 d_venue_name.add(object.getString("name"));
                                 d_venue_gl_la.add(object.getString("gl_la"));
@@ -473,11 +476,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Request EVENT LIST
         JsonArrayRequest request_events = new JsonArrayRequest
                 (Request.Method.GET, api_event+"&rdate=%27"+request_date+"%27", null, new Response.Listener<JSONArray>() {
+
+
                     @Override
                     public void onResponse(JSONArray response) {
 
+                        nDialog.dismiss();
+
                         for(int i = 0; i< response.length(); i++){
                             JSONObject object = (JSONObject) response.opt(i);
+
+
                             try {
 
                                 //d_event_name.add(object.getString("name"));
@@ -541,7 +550,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                 initPlanlist();
 
-                                nDialog.dismiss();
+
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -552,11 +561,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MapsActivity.this, "Check your internet.", Toast.LENGTH_SHORT).show();
+
+                        //Toast.makeText(MapsActivity.this, "Check Internet Connection", Toast.LENGTH_SHORT).show();
+                        alertNoData();
+                        nDialog.dismiss();
+                        //alertNoData();
                     }
                 });
 
         // Add the request to the RequestQueue.
+        request_events.setShouldCache(false);
         queue.add(request_venues);
         queue.add(request_events);
 
@@ -564,9 +578,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void selectDate(View v){
 
-        //Initial date from selected date
         Calendar calendar = Calendar.getInstance();
         List<String> date_after = new ArrayList<String>(asList(selected_date.split("-")));
+
 
         int year = Integer.parseInt(date_after.get(0));
         int mouth = Integer.parseInt(date_after.get(1));
@@ -579,18 +593,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mDatesetListener,
                 year, mouth, day);
         dialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+
+        //Initial date from selected date
+
         dialog.show();
 
         mDatesetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int mouth, int day) {
-
+                mouth = mouth + 1;
                 String s_mouth = Integer.toString(mouth);
+                String s_day = Integer.toString(day);
                 //if mouth 1-9 convert to 01-09
                 if(s_mouth.length() == 1){
                     s_mouth = "0" + s_mouth;
                 }
-                String current_Date = day + "-" + s_mouth + "-" + year;
+
+                if(s_day.length() == 1){
+                    s_day = "0" + s_day;
+                }
+                String current_Date = s_day + "-" + s_mouth + "-" + year;
 
                 //Update selected date and made request again
                 selected_date = current_Date;
@@ -914,6 +936,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .setTextAppearance(R.style.alertText_plan_title)
                 .setIconColorFilter(0)
                 .setBackgroundResource(R.drawable.alert_bg_city)
+                .showIcon(false)
+                .setDuration(3000)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Alerter.hide();
+                    }
+                })
+                .show();
+    }
+
+    public void alertNoData(){
+        Alerter.create(this)
+                .setTitle("Events coming up...")
+                .setText("There are no event for this date for now. \nMaybe try tomorrow?")
+                .setTitleAppearance(R.style.alertTextTitle)
+                .setTextAppearance(R.style.alertText)
+                .setIconColorFilter(0)
+                .setBackgroundColorRes(R.color.colorPrimary)
                 .showIcon(false)
                 .setDuration(3000)
                 .setOnClickListener(new View.OnClickListener() {

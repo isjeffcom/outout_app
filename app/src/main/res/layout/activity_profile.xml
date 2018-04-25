@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00efdd"
+            android:gravity="center"
             android:orientation="vertical"
             android:padding="0dp">
 
@@ -35,16 +36,15 @@
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
-                    android:onClick="toHome"
                     android:drawableLeft="@drawable/ic_back_arrow"
                     android:drawableStart="@drawable/ic_back_arrow"
+                    android:onClick="toHome"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
 
             </android.support.v7.widget.LinearLayoutCompat>
@@ -80,11 +80,11 @@
                 android:id="@+id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:text="@string/username"
-                android:layout_gravity="center"
                 android:textColor="#181818"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/profile_email"
@@ -103,19 +103,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
                 android:background="#00efdd"
+                android:clickable="true"
                 android:columnCount="3"
                 android:horizontalSpacing="10dp"
                 android:numColumns="auto_fit"
+                android:onClick="toUc"
                 android:orientation="horizontal"
                 android:paddingTop="6dp"
-                android:verticalSpacing="10dp"
-                android:clickable="true"
-                android:onClick="toUc">
+                android:verticalSpacing="10dp">
 
             </GridLayout>
 
@@ -148,19 +148,25 @@
 
         </android.support.v7.widget.LinearLayoutCompat>
 
-        <android.support.v7.widget.LinearLayoutCompat
-            android:id="@+id/linearLayoutCompat"
+        <ScrollView
+            android:id="@+id/myPreviousActivityList_ScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerViewUsers"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content" />
-        </android.support.v7.widget.LinearLayoutCompat>
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/previousActivityContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
 
     </android.support.v7.widget.LinearLayoutCompat>
 

@@ -66,6 +66,7 @@
             android:background="#414141"
             android:drawableLeft="@drawable/ic_calendar"
             android:drawableStart="@drawable/ic_calendar"
+            android:onClick="selectDate"
             android:paddingEnd="1dp"
             android:paddingLeft="1dp"
             android:paddingRight="1dp"

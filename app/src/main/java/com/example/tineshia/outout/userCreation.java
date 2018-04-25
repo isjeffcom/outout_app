@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +80,7 @@ public class userCreation extends Activity {
             public void onClick(View view) {
 
 
-                c_view = c_view + 1;
-                if (c_view > 3) {
+                if (c_view >= 3) {
 
                     if(l_list_tags.isEmpty()){
                         Alerter.create(userCreation.this)
@@ -107,6 +107,7 @@ public class userCreation extends Activity {
 
 
                 }else{
+                    c_view = c_view + 1;
                     viewController(c_view);
                     progressControl();
                 }
