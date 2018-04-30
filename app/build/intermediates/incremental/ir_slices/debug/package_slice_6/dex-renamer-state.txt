@@ -1,4 +1,4 @@
-#Wed Apr 25 16:15:10 BST 2018
-base.0=/Users/jianfengwu/Documents/outout_app/app/build/intermediates/transforms/dexMerger/debug/36
+#Fri Apr 27 11:57:25 BST 2018
+base.0=/Users/jianfengwu/Documents/outout_app/app/build/intermediates/transforms/dexMerger/debug/51
 path.0=classes.dex
 renamed.0=classes.dex

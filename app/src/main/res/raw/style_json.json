@@ -182,7 +182,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#17263c"
+        "color": "#181818"
       }
     ]
   },
@@ -203,5 +203,10 @@
         "lightness": -20
       }
     ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [{"visibility": "none'"}]
   }
 ]

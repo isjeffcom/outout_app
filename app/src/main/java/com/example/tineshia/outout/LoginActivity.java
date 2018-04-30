@@ -179,7 +179,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
      */
     private void verifyFromSQLite() {
 
-        showLoading();
+
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
         }
@@ -190,10 +190,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             return;
         }
 
+
         request();
     }
 
     public void request(){
+
+        showLoading();
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);

@@ -280,7 +280,9 @@ public class planActivity extends AppCompatActivity {
 
                                 LinearLayoutCompat eListner = (LinearLayoutCompat) card.findViewById(R.id.toExpandListener);
                                 LinearLayoutCompat mI_container = (LinearLayoutCompat) card.findViewById(R.id.more_info_container);
+                                TextView viewMore = (TextView) card.findViewById(R.id.viewMoreListener);
                                 eListner.setTag(object.getString("id"));
+                                viewMore.setTag("vm,"+object.getString("id"));
                                 mI_container.setTag(object.getString("id"));
 
                                 //Add view
@@ -332,7 +334,9 @@ public class planActivity extends AppCompatActivity {
 
         List<Plan> planList = databaseHelper.getPlan(selected_date);
 
-        String tempEid = planList.get(0).getEidArr();
+        if(l_list_event.size() < 1){
+            finish();
+        }
 
 
     }
@@ -364,26 +368,54 @@ public class planActivity extends AppCompatActivity {
 
     public void clickToExpand(View v){
 
-
-
         //Get tag
         Object eid_obj = v.getTag();
         String eid_string = eid_obj.toString();
-        Log.v("eid_string",eid_string);
+
 
         ViewGroup container = (ViewGroup) findViewById(R.id.myPlanList_Container);
         CardView cardItem = (CardView) container.findViewWithTag(eid_string);
+        TextView textVM = (TextView) container.findViewWithTag("vm,"+eid_string);
 
+        textVM.setText("View less");
         LinearLayoutCompat expandLayout = (LinearLayoutCompat) cardItem.findViewById(R.id.more_info_container);
         expandLayout.setVisibility(View.VISIBLE);
-
-
 
     }
 
     public void clickToEBack(View v){
 
         v.setVisibility(View.GONE);
+
+    }
+
+    public void ViewMoreToExpand(View v){
+
+
+
+        //Get tag
+        Object eid_obj = v.getTag();
+        String eid_before = eid_obj.toString();
+        String[] eid_arr = eid_before.split(",");
+        String eid_string = eid_arr[1];
+
+        ViewGroup container = (ViewGroup) findViewById(R.id.myPlanList_Container);
+        CardView cardItem = (CardView) container.findViewWithTag(eid_string);
+        TextView textVM = (TextView) container.findViewWithTag("vm,"+eid_string);
+        LinearLayoutCompat expandLayout = (LinearLayoutCompat) cardItem.findViewById(R.id.more_info_container);
+
+        //Get current state
+        String viewMoreState = textVM.getText().toString();
+
+        //If more than expand otherwise not
+        if(viewMoreState.contains("more")){
+            textVM.setText("View less");
+            expandLayout.setVisibility(View.VISIBLE);
+        }else{
+            textVM.setText("View more");
+            expandLayout.setVisibility(View.GONE);
+        }
+
 
     }
 
@@ -499,9 +531,9 @@ public class planActivity extends AppCompatActivity {
         if(state.equals("2")){
             Alerter.create(this)
                     .setTitle("Review your unbeatable night out below.")
-                    .setText("\n\n\n" +"Remember to share \nyour experience with \nfriends on social media \nto gain diamonds!")
+                    .setText("\n\n" +"Remember to share \nyour experience with \nfriends on social media \nto gain diamonds!")
                     .setTitleAppearance(R.style.alertText_plan_title)
-                    .setTextAppearance(R.style.alertText_plan_title)
+                    .setTextAppearance(R.style.alertText_plan_text)
                     .setIconColorFilter(0)
                     .setBackgroundResource(R.drawable.alert_bg_gift)
                     .showIcon(false)

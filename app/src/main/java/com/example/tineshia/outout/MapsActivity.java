@@ -68,6 +68,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -101,6 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private static Context mContext;
     public String selected_date;
+    private boolean venue_got;
 
     List<Marker> map_markers = new ArrayList<>();
 
@@ -387,98 +389,120 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Instantiate the RequestQueue.
         final RequestQueue queue = Volley.newRequestQueue(this);
 
-        // Request VENUE LIST
-        JsonArrayRequest request_venues = new JsonArrayRequest
-                (Request.Method.GET, api_venue, null, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
+        //Clean to venue id list
+        d_event_toVenueId.clear();
 
-                        d_venue_id.clear();
-                        d_venue_name.clear();
+        if(venue_got){
+            //DO NOTHING
+        }else{
+            // Request VENUE LIST
+            JsonArrayRequest request_venues = new JsonArrayRequest
+                    (Request.Method.GET, api_venue, null, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
 
-                        for(int i = 0; i< response.length(); i++){
+                            d_venue_id.clear();
+                            d_venue_name.clear();
 
-                            JSONObject object = (JSONObject) response.opt(i);
-                            try {
+                            for(int i = 0; i< response.length(); i++){
+
+                                JSONObject object = (JSONObject) response.opt(i);
+                                try {
 
 
 
-                                d_venue_id.add(object.getString("id"));
-                                d_venue_name.add(object.getString("name"));
-                                d_venue_gl_la.add(object.getString("gl_la"));
-                                d_venue_gl_lo.add(object.getString("gl_lo"));
+                                    d_venue_id.add(object.getString("id"));
+                                    d_venue_name.add(object.getString("name"));
+                                    d_venue_gl_la.add(object.getString("gl_la"));
+                                    d_venue_gl_lo.add(object.getString("gl_lo"));
 
-                                if(databaseHelper.checkVenue(object.getString("id"))){
-                                    databaseHelper.updateVenue(object.getString("id"), object.getString("name"), object.getString("address"));
-                                    //Log.e("v",object.getString("address"));
-                                }else{
-                                    databaseHelper.addVenue(object.getString("id"), object.getString("name"), object.getString("address"), object.getString("gl_la"), object.getString("gl_lo"));
+                                    if(databaseHelper.checkVenue(object.getString("id"))){
+                                        databaseHelper.updateVenue(object.getString("id"), object.getString("name"), object.getString("address"));
+                                        //Log.e("v",object.getString("address"));
+                                    }else{
+                                        databaseHelper.addVenue(object.getString("id"), object.getString("name"), object.getString("address"), object.getString("gl_la"), object.getString("gl_lo"));
+                                    }
+
+                                    double gl_la = Double.parseDouble(object.getString("gl_la"));
+                                    double gl_lo = Double.parseDouble(object.getString("gl_lo"));
+
+                                    //mMap.setOnMarkerClickListener(this);
+
+                                    Marker venue_marker = mMap.addMarker(new MarkerOptions()
+                                            .position(new LatLng(gl_la, gl_lo))
+                                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white))
+                                            .title(object.getString("name")));
+                                    venue_marker.setTag("mi,"+object.getString("id"));
+
+                                    map_markers.add(venue_marker);
+
+
+
+                                    //mTextView.setText("Venue is: "+ d_venue_name + d_venue_gl_la +d_venue_gl_lo);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-
-                                double gl_la = Double.parseDouble(object.getString("gl_la"));
-                                double gl_lo = Double.parseDouble(object.getString("gl_lo"));
-
-                                //mMap.setOnMarkerClickListener(this);
-
-                                Marker venue_marker = mMap.addMarker(new MarkerOptions()
-                                        .position(new LatLng(gl_la, gl_lo))
-                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white))
-                                        .title(object.getString("name")));
-                                venue_marker.setTag("mi,"+object.getString("id"));
-
-                                map_markers.add(venue_marker);
-
-
-
-                                //mTextView.setText("Venue is: "+ d_venue_name + d_venue_gl_la +d_venue_gl_lo);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
+
+                            //Set marker click listener
+                            final LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
+                            //Change card and marker color when click on marker
+                            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                                @Override
+                                public boolean onMarkerClick(Marker m) {
+                                    //Log.e("a",m.getTag().toString());
+
+                                    String tagId_before = m.getTag().toString();
+                                    String[] tagId_after = tagId_before.split(",");
+                                    String tagId = tagId_after[1];
+
+                                    int isSelected = 0;
+
+                                    for (Marker marker : map_markers) {
+
+                                        if (marker.getTag().equals(tagId_before)) {
+                                            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
+                                        }else{
+                                            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
+                                        }
+                                    }
+
+                                    for(int i=0;i<d_event_toVenueId.size();i++){
+
+                                        if(tagId.equals(d_event_toVenueId.get(i))){
+                                            isSelected = 1;
+                                            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi,"+d_event_toVenueId.get(i));
+                                            cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
+                                        }else{
+                                            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi,"+d_event_toVenueId.get(i));
+                                            cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
+
+                                        }
+
+
+                                    }
+
+                                    if(isSelected == 0){
+                                        alertNoEVenue();
+                                    }
+
+                                    return true;
+                                }
+                            });
+
                         }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(MapsActivity.this, "Check your internet.", Toast.LENGTH_SHORT).show();
+                            //mTextView.setText("That didn't work!" + error);
+                        }
+                    });
+            queue.add(request_venues);
+            venue_got = true;
+        }
 
-                        //Set marker click listener
-                        final LinearLayoutCompat cardContainer = (LinearLayoutCompat) findViewById(R.id.event_card_container);
-                        //Change card and marker color when click on marker
-                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                            @Override
-                            public boolean onMarkerClick(Marker m) {
-                                //Log.e("a",m.getTag().toString());
 
-                                String tagId_before = m.getTag().toString();
-                                String[] tagId_after = tagId_before.split(",");
-                                String tagId = tagId_after[1];
-
-                                for (Marker marker : map_markers) {
-
-                                    if (marker.getTag().equals(tagId_before)) {
-                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
-                                    }else{
-                                        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_white));
-                                    }
-                                }
-
-                                for(int i=0;i<d_venue_id.size();i++){
-                                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi,"+d_event_toVenueId.get(i));
-
-                                    if(tagId.equals(d_event_toVenueId.get(i))){
-
-                                        cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
-                                    }else{
-                                        cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
-                                    }
-                                }
-                                return true;
-                            }
-                        });
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MapsActivity.this, "Check your internet.", Toast.LENGTH_SHORT).show();
-                //mTextView.setText("That didn't work!" + error);
-            }
-        });
 
         // Request EVENT LIST
         JsonArrayRequest request_events = new JsonArrayRequest
@@ -500,8 +524,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 //d_event_time.add(object.getString("time"));
                                 //d_event_date.add(object.getString("date"));
                                 //d_event_img.add(object.getString("img"));
+
                                 d_event_toVenueId.add(object.getString("toVenue"));
-                                d_event_typeId.add(object.getString("type"));
+                                //d_event_typeId.add(object.getString("type"));
 
 
 
@@ -578,7 +603,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add the request to the RequestQueue.
         request_events.setShouldCache(false);
-        queue.add(request_venues);
+
         queue.add(request_events);
 
     }
@@ -826,15 +851,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         //m.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.custom_marker_green));
-        for(int i=0;i<d_venue_id.size();i++){
+        for(int i=0;i<d_event_toVenueId.size();i++){
 
-            LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi," + d_event_toVenueId.get(i));
+                if(tagId.equals(d_event_toVenueId.get(i))){
+                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi," + d_event_toVenueId.get(i));
+                    cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
+                }else{
 
-            if(tagId.equals(d_event_toVenueId.get(i))){
-                cardSingle.setBackground(getResources().getDrawable(R.color.colorPrimary));
-            }else{
-                cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
-            }
+                    LinearLayoutCompat cardSingle = (LinearLayoutCompat) cardContainer.findViewWithTag("mi," + d_event_toVenueId.get(i));
+                    cardSingle.setBackground(getResources().getDrawable(R.color.colorAccent));
+                }
+
+
+
         }
     }
 
@@ -944,9 +973,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void openLocationPicker(View v){
         Alerter.create(this)
                 .setTitle("Coming Soon...")
-                .setText("\n\n\n" +"We are looking forward \nto bring this services to \nnew area. \nWe coming soon!")
-                .setTitleAppearance(R.style.alertText_plan_title)
-                .setTextAppearance(R.style.alertText_plan_title)
+                .setText("\n\n" +"We are looking forward \nto bringing our services to \nother areas soon!")
+                .setTitleAppearance(R.style.alertTextTitle)
+                .setTextAppearance(R.style.alertText_plan_text)
                 .setIconColorFilter(0)
                 .setBackgroundResource(R.drawable.alert_bg_city)
                 .showIcon(false)
@@ -964,6 +993,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Alerter.create(this)
                 .setTitle("Events coming up...")
                 .setText("There are no event for this date for now. \nMaybe try tomorrow?")
+                .setTitleAppearance(R.style.alertTextTitle)
+                .setTextAppearance(R.style.alertText)
+                .setIconColorFilter(0)
+                .setBackgroundColorRes(R.color.colorPrimary)
+                .showIcon(false)
+                .setDuration(3000)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Alerter.hide();
+                    }
+                })
+                .show();
+    }
+
+    public void alertNoEVenue(){
+        Alerter.create(this)
+                .setTitle("Events coming up...")
+                .setText("There are no event for this venue now. \nMaybe try tomorrow?")
                 .setTitleAppearance(R.style.alertTextTitle)
                 .setTextAppearance(R.style.alertText)
                 .setIconColorFilter(0)

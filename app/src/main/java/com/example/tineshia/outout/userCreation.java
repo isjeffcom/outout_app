@@ -55,6 +55,8 @@ public class userCreation extends Activity {
     public int from = 0;
     public int c_view = 1;
 
+    String[] l_list_title = {"Genre(s)", "Venue(s)", "Budget"};
+
     List<String> l_list_tags = new ArrayList<String>();
 
 
@@ -85,8 +87,7 @@ public class userCreation extends Activity {
                     if(l_list_tags.isEmpty()){
                         Alerter.create(userCreation.this)
                                 .setTitle("Let AI Work")
-                                .setText("Please select at least one tag\n" +
-                                        "Our algorithm will pick up best event for you")
+                                .setText("Please make at least one selection \nto let us recommend you events and venues")
                                 .setTitleAppearance(R.style.alertTextTitle)
                                 .setTextAppearance(R.style.alertText)
                                 .setIconColorFilter(0)
@@ -230,8 +231,17 @@ public class userCreation extends Activity {
     //Control the displaying content for page
     public void viewController(int view_count){
 
-        //Layout container
+        //Identify layout elements
         ViewGroup container = (ViewGroup) findViewById(R.id.selection_container);
+        TextView title = (TextView) findViewById(R.id.appCompatChooseGenreLabel);
+        TextView subTitle = (TextView) findViewById(R.id.textViewLinkRegister);
+
+
+        //Set text
+        title.setText("CHOOSE YOUR " + l_list_title[view_count - 1].toUpperCase());
+        subTitle.setText("Select your favourite " + l_list_title[view_count - 1]);
+
+
 
         //Get child count
         int childCount = container.getChildCount();
@@ -288,7 +298,7 @@ public class userCreation extends Activity {
         }
     }
 
-    //Go to Home acitivity
+    //Go to Home activity
     public void toHome(){
 
         String fromWhere = getIntent().getStringExtra("from");

@@ -669,25 +669,25 @@ public final class R {
         public static final int abc_vector_test = 0x7f080059;
         public static final int avd_hide_password = 0x7f080061;
         public static final int avd_show_password = 0x7f080062;
-        public static final int design_bottom_navigation_item_background = 0x7f080097;
-        public static final int design_fab_background = 0x7f080098;
-        public static final int design_ic_visibility = 0x7f080099;
-        public static final int design_ic_visibility_off = 0x7f08009a;
-        public static final int design_password_eye = 0x7f08009b;
-        public static final int design_snackbar_background = 0x7f08009c;
-        public static final int navigation_empty_icon = 0x7f0800f5;
-        public static final int notification_action_background = 0x7f0800fb;
-        public static final int notification_bg = 0x7f0800fc;
-        public static final int notification_bg_low = 0x7f0800fd;
-        public static final int notification_bg_low_normal = 0x7f0800fe;
-        public static final int notification_bg_low_pressed = 0x7f0800ff;
-        public static final int notification_bg_normal = 0x7f080100;
-        public static final int notification_bg_normal_pressed = 0x7f080101;
-        public static final int notification_icon_background = 0x7f080102;
-        public static final int notification_template_icon_bg = 0x7f080103;
-        public static final int notification_template_icon_low_bg = 0x7f080104;
-        public static final int notification_tile_bg = 0x7f080105;
-        public static final int notify_panel_notification_icon_bg = 0x7f080106;
+        public static final int design_bottom_navigation_item_background = 0x7f080098;
+        public static final int design_fab_background = 0x7f080099;
+        public static final int design_ic_visibility = 0x7f08009a;
+        public static final int design_ic_visibility_off = 0x7f08009b;
+        public static final int design_password_eye = 0x7f08009c;
+        public static final int design_snackbar_background = 0x7f08009d;
+        public static final int navigation_empty_icon = 0x7f0800f6;
+        public static final int notification_action_background = 0x7f0800fc;
+        public static final int notification_bg = 0x7f0800fd;
+        public static final int notification_bg_low = 0x7f0800fe;
+        public static final int notification_bg_low_normal = 0x7f0800ff;
+        public static final int notification_bg_low_pressed = 0x7f080100;
+        public static final int notification_bg_normal = 0x7f080101;
+        public static final int notification_bg_normal_pressed = 0x7f080102;
+        public static final int notification_icon_background = 0x7f080103;
+        public static final int notification_template_icon_bg = 0x7f080104;
+        public static final int notification_template_icon_low_bg = 0x7f080105;
+        public static final int notification_tile_bg = 0x7f080106;
+        public static final int notify_panel_notification_icon_bg = 0x7f080107;
     }
     public static final class id {
         public static final int action0 = 0x7f090006;
@@ -840,10 +840,10 @@ public final class R {
         public static final int transition_scene_layoutid_cache = 0x7f09014b;
         public static final int up = 0x7f090150;
         public static final int useLogo = 0x7f090155;
-        public static final int view_offset_helper = 0x7f090158;
-        public static final int visible = 0x7f090159;
-        public static final int withText = 0x7f09015b;
-        public static final int wrap_content = 0x7f09015d;
+        public static final int view_offset_helper = 0x7f090159;
+        public static final int visible = 0x7f09015a;
+        public static final int withText = 0x7f09015c;
+        public static final int wrap_content = 0x7f09015e;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
