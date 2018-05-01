@@ -941,6 +941,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String s_mouth = Integer.toString(mouth);
         String s_day = Integer.toString(day);
 
+        if(s_day.length() == 1){
+            s_day = "0" + s_day;
+        }
+
         //if mouth 1-9 convert to 01-09
         if(s_mouth.length() == 1){
             s_mouth = "0" + s_mouth;
